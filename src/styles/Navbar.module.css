@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background);
+  padding: 0.75rem 1rem;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.logoIcon {
+  margin-right: 10px;
+  color: var(--primary);
+}
+
+.logoText {
+  font-weight: 700;
+}
+
+.themeBtn {
+  background-color: #e2e8f0;
+  border-radius: 25%;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: var(--secondary-trans);
+  &:hover {
+    scale: 1.1;
+  }
+}
+
+[theme-mode="dark"] {
+  .themeBtn {
+    background-color: #1e293b;
+  }
+}

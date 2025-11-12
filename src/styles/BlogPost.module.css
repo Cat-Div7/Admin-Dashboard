@@ -1,0 +1,90 @@
+/* Blog Post Card */
+.blogCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background-color: var(--card-bg);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  transition: var(--main-trans);
+}
+
+.blogCard:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+[theme-mode="dark"] .blogCard:hover {
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1);
+}
+
+.blogImage {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.blogContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.blogText {
+  flex: 1;
+}
+
+.blogTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.blogDescription {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.blogLink {
+  display: inline-block;
+  margin-top: 1rem;
+  width: fit-content;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--main-trans);
+}
+
+.arrow {
+  display: inline-block;
+  transition: var(--main-trans);
+  margin-left: 0.25rem;
+}
+
+.blogCard:hover .arrow {
+  transform: translateX(6px);
+  color: var(--primary-hover);
+}
+
+.blogCard:hover .arrow {
+  animation: arrowBounce 0.6s infinite;
+}
+
+/* مع bounce effect */
+@keyframes arrowBounce {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}

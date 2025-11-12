@@ -1,0 +1,63 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-radius: inherit;
+}
+
+.label {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: -5px;
+}
+
+.starsContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+.star {
+  color: var(--muted-text-50);
+  cursor: pointer;
+  transition: var(--secondary-trans);
+  font-size: 2rem;
+  flex-shrink: 1;
+
+  &:hover {
+    color: var(--primary);
+  }
+}
+
+.star.active {
+  color: var(--primary);
+}
+
+.textarea {
+  background-color: var(--muted-color);
+  color: white;
+  min-height: 150px;
+  resize: none;
+  padding: 1rem;
+  border-radius: inherit;
+  color: var(--placeholder-text);
+  &::placeholder {
+    color: var(--placeholder-color);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.error:focus {
+  border-color: rgb(215, 26, 26);
+  box-shadow: 0 0 5px rgb(215, 26, 26);
+}
+
+.btn {
+  background-color: var(--primary);
+  color: white;
+  width: 100%;
+  border-radius: inherit;
+  border: none;
+}
