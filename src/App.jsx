@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PublicRoute, ProtectedRoute } from "@utils";
-import { LandingPage, Root, Login, Register, BlogsPage } from "@pages";
+import { LandingPage, Root, LoginPage, RegisterPage, BlogsPage } from "@pages";
 import { MainLayout } from "@layouts";
 import { generateFakeToken } from "@utils";
+import { STORAGE_KEY_TOKEN } from "@constants";
 
 const router = createBrowserRouter([
   // Public Routes (No login required)
@@ -10,8 +11,8 @@ const router = createBrowserRouter([
     element: <PublicRoute />,
     children: [
       { path: "", element: <LandingPage /> },
-      { path: "login", element: <Login /> },
-      { path: "register", element: <Register /> },
+      { path: "login", element: <LoginPage /> },
+      { path: "register", element: <RegisterPage /> },
     ],
   },
 
@@ -39,9 +40,9 @@ const router = createBrowserRouter([
 
 function App() {
   const t = generateFakeToken();
-  localStorage.setItem("token", t);
+  // localStorage.setItem(STORAGE_KEY_TOKEN, t);
+  // localStorage.clear();
 
-  localStorage.clear();
 
   document.documentElement.setAttribute("theme-mode", "dark");
 

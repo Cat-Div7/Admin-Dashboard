@@ -4,9 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logoImage from "../../assets/logo.png";
 import { Button } from "@components";
-
-const LOGIN_PATH = "login";
-const REGISTER_PATH = "register";
+import { REGISTER_PATH, LOGIN_PATH } from "@constants";
 
 function LandingTopNav() {
   const [menuOpen, setMenuOpen] = useState(false);

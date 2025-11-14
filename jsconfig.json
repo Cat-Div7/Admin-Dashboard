@@ -11,6 +11,7 @@
       "@hooks/*": ["hooks/*"],
       "@styles/*": ["styles/*"],
       "@layouts/*": ["layouts/*"],
+      "@constants/*": ["constants/*"]
     }
   }
 }

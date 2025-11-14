@@ -3,6 +3,12 @@ import {
   faUsers,
   faSliders,
   faArrowUp,
+  faArrowLeft,
+  faEnvelope,
+  faLock,
+  faEye,
+  faEyeSlash,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -17,6 +23,18 @@ export const featureIcons = {
   analytics: faChartLine,
   group: faUsers,
   tune: faSliders,
+};
+
+export const formIcons = {
+  email: faEnvelope,
+  user: faUser,
+  password: faLock,
+  eyeOpen: faEye,
+  eyeSlash: faEyeSlash,
+};
+
+export const navigationIcons = {
+  arrowLeft: faArrowLeft,
 };
 
 export {

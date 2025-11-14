@@ -62,7 +62,7 @@ function LandingFooter() {
 
           <div className={styles.copyright}>
             <p>
-              Created by <span className={styles.footerName}>Omar</span>,
+              Created by <span className={styles.footerName}>Omar</span>{" "}
               {currentYear} All rights reserved.
             </p>
           </div>

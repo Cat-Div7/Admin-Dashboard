@@ -141,7 +141,7 @@
   flex-direction: column;
   gap: 12px;
   position: absolute;
-  top: 80px;
+  top: 83px;
   left: 0;
   width: 100%;
   background-color: var(--background);
@@ -196,6 +196,7 @@
   position: relative;
   padding: 5rem 0;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 @media (min-width: 640px) {
@@ -283,7 +284,7 @@
 
 .featuresSection {
   padding: 5rem 0;
-}
+  scroll-snap-align: start;}
 
 @media (min-width: 640px) {
   .featuresSection {
@@ -389,6 +390,7 @@
 .blogSection {
   padding: 5rem 0;
   background-color: var(--section-bg);
+  scroll-snap-align: start;
 }
 
 @media (min-width: 640px) {
@@ -449,6 +451,7 @@
 
 .aboutSection {
   padding: 5rem 0;
+  scroll-snap-align: start;
 }
 
 @media (min-width: 640px) {
@@ -565,6 +568,7 @@
 .footer {
   background-color: var(--card-bg);
   border-top: 1px solid var(--border-color);
+  scroll-snap-align: start;
 }
 
 .footerContent {

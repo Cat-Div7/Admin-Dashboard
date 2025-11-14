@@ -1,7 +1,6 @@
 .primaryBtn,
 .secondaryBtn {
-  height: 40px;
-  padding: 1.5rem 1rem;
+  padding: 1rem 0.875rem;
   font-size: 1rem;
   cursor: pointer;
   font-weight: 700;
@@ -14,11 +13,13 @@
 }
 
 .primaryBtn {
-  background-color: #6366f1;
+  background-color: var(--primary);
   color: white;
 
   &:hover {
     transform: scale(1.05);
+    background-color: var(--primary-hover);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
   }
 
   &:active {
@@ -34,4 +35,11 @@
   &:hover {
     background-color: rgba(99, 102, 241, 0.2);
   }
+}
+
+@media screen and (max-width: 786px) {
+    .primaryBtn, .secondaryBtn {
+      padding: 0.75rem 1rem !important; 
+       max-height: 50px;
+    }
 }

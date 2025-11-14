@@ -3,13 +3,14 @@ import { Outlet } from "react-router-dom";
 function MainLayout() {
   return (
     <div>
-    {/* Sidebar Nav */}
+      {/* Sidebar Nav */}
       <aside>
-        <nav>dskkdka</nav>
+        <nav>SideNav</nav>
       </aside>
       {/* Main COntent */}
       <main>
-        <nav></nav>
+        <nav>Navbar</nav>
+        Content
         <Outlet />;
       </main>
     </div>

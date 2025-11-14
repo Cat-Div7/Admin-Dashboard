@@ -1,0 +1,164 @@
+.cardSkeleton {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* Image Skeleton - Full width at top */
+.skeletonImage {
+  width: 100%;
+  height: 10rem;
+  background: linear-gradient(
+    90deg,
+    var(--border-color) 25%,
+    rgba(200, 200, 200, 0.1) 50%,
+    var(--border-color) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  flex-shrink: 0;
+}
+
+/* Content Wrapper - Icon + Lines */
+.contentWrapper {
+  padding: 1rem;
+  gap: 0.75rem;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Lines Wrapper */
+.linesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  width: 100%;
+}
+
+/* Avatar Below Section */
+.avatarBelowWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Avatar Image Skeleton - Circular */
+.skeletonAvatarImg {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    var(--border-color) 25%,
+    rgba(200, 200, 200, 0.1) 50%,
+    var(--border-color) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  flex-shrink: 0;
+}
+
+/* Avatar Info Lines */
+.avatarInfoWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.avatarNameSkeleton {
+  height: 0.875rem;
+  width: 70%;
+  background: linear-gradient(
+    90deg,
+    var(--border-color) 25%,
+    rgba(200, 200, 200, 0.1) 50%,
+    var(--border-color) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  border-radius: 0.25rem;
+}
+
+.avatarPositionSkeleton {
+  height: 0.75rem;
+  width: 50%;
+  background: linear-gradient(
+    90deg,
+    var(--border-color) 25%,
+    rgba(200, 200, 200, 0.1) 50%,
+    var(--border-color) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  border-radius: 0.25rem;
+}
+
+/* Icon Skeleton - Top Left */
+.skeletonIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    var(--border-color) 25%,
+    rgba(200, 200, 200, 0.1) 50%,
+    var(--border-color) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  flex-shrink: 0;
+}
+
+/* Skeleton Line with Shimmer Animation */
+.skeletonLine {
+  height: 1rem;
+  background: linear-gradient(
+    90deg,
+    var(--border-color) 25%,
+    rgba(200, 200, 200, 0.1) 50%,
+    var(--border-color) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  border-radius: 0.25rem;
+  width: 100%;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Dark Mode Support */
+[theme-mode="dark"] .skeletonLine,
+[theme-mode="dark"] .skeletonImage,
+[theme-mode="dark"] .skeletonIcon,
+[theme-mode="dark"] .skeletonAvatarImg,
+[theme-mode="dark"] .avatarNameSkeleton,
+[theme-mode="dark"] .avatarPositionSkeleton {
+  background: linear-gradient(
+    90deg,
+    #334155 25%,
+    rgba(100, 100, 100, 0.2) 50%,
+    #334155 75%
+  );
+  background-size: 200% 100%;
+}
