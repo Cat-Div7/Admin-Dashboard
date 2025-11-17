@@ -1,19 +1,58 @@
+import { useEffect, useState } from "react";
+import { Sidebar, Button, Navbar } from "@components";
 import { Outlet } from "react-router-dom";
+import { CollapseContextProvider, ThemeContextProvider } from "@context";
+import styles from "@styles/MainLayout.module.css";
+import { sidebarIcons } from "@utils";
+import { FontIcon } from "@root/components";
 
 function MainLayout() {
+  const [smallScreen, setSmallScreen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 786) {
+        setSmallScreen(true);
+        setIsOpen(false);
+      } else {
+        setSmallScreen(false);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [setSmallScreen]);
+
+  const toggleNav = () => setIsOpen(!isOpen);
+
   return (
-    <div>
-      {/* Sidebar Nav */}
-      <aside>
-        <nav>SideNav</nav>
-      </aside>
-      {/* Main COntent */}
-      <main>
-        <nav>Navbar</nav>
-        Content
-        <Outlet />;
-      </main>
-    </div>
+    <ThemeContextProvider>
+      <div className={styles.app}>
+        {smallScreen && (
+          <Button onClick={toggleNav} auxClass={styles.collapseBtn}>
+            <FontIcon
+              icon={sidebarIcons.dobuleAngle}
+              style={isOpen ? {} : { transform: "rotate(180deg)" }}
+            />
+          </Button>
+        )}
+        {/* Sidebar Nav */}
+        <CollapseContextProvider>
+          <aside className={`${styles.sidebar} ${isOpen && styles.dBlock}`}>
+            <Sidebar />
+          </aside>
+        </CollapseContextProvider>
+        {/* Main COntent */}
+        <div className={styles.contentContainer}>
+          <Navbar />
+          <main className={styles.mainContent}>
+            <Outlet />
+          </main>
+        </div>
+      </div>
+    </ThemeContextProvider>
   );
 }
 

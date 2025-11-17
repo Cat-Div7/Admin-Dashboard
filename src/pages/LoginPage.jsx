@@ -8,7 +8,7 @@ import {
   STORAGE_KEY_USER_ID,
   STORAGE_KEY_TOKEN,
   REGISTER_PATH,
-  ADMIN_PATH,
+  HOME_PATH,
 } from "@constants";
 import styles from "@styles/LoginPage.module.css";
 
@@ -205,7 +205,7 @@ function LoginPage() {
       toast.success("Welcome back!");
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      navigate(ADMIN_PATH);
+      navigate(HOME_PATH);
     } catch {
       dispatch({
         type: "SET_ERRORS",
@@ -215,7 +215,7 @@ function LoginPage() {
         },
       });
 
-      toast.error('Something went wrong...')
+      toast.error("Something went wrong...");
     } finally {
       dispatch({
         type: "SET_LOADING",
@@ -250,6 +250,7 @@ function LoginPage() {
       <div className={styles.formContainer}>
         {/* Go Back Button */}
         <BackButton />
+        {/* Heading */}
         <div className={styles.heading}>
           <h1>Welcome Back</h1>
           <p>Sign in to your account</p>

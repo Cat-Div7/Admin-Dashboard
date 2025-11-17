@@ -154,6 +154,7 @@
 .loadingSpinner {
   width: 16px;
   height: 16px;
+  margin-right: 0.5rem;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-top-color: white;
   border-radius: 50%;

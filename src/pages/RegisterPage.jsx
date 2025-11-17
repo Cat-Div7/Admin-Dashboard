@@ -8,9 +8,9 @@ import {
   STORAGE_KEY_USER_ID,
   STORAGE_KEY_TOKEN,
   LOGIN_PATH,
-  ADMIN_PATH,
+  HOME_PATH,
 } from "@constants";
-import styles from "@styles/LoginPage.module.css";
+import styles from "@styles/RegisterPage.module.css";
 
 const initialState = {
   username: "",
@@ -201,9 +201,6 @@ function RegisterPage() {
       };
 
       toast.success("Congrats, User Created Succesfully");
-      setTimeout(() => {
-        toast.info("Welcome to Admin Dashboard");
-      }, 1000);
 
       localStorage.setItem(
         STORAGE_KEY_ACCOUNTS,
@@ -223,7 +220,7 @@ function RegisterPage() {
 
       // Navigate to admin dashboard
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      navigate(ADMIN_PATH);
+      navigate(HOME_PATH);
     } catch (error) {
       console.error("Registration error:", error);
       dispatch({
@@ -276,6 +273,7 @@ function RegisterPage() {
       <div className={styles.formContainer}>
         {/* Go Back Button */}
         <BackButton />
+        {/* Heading */}
         <div className={styles.heading}>
           <h1>Create Account</h1>
           <p>Join the Admin Dashboard</p>
@@ -356,16 +354,6 @@ function RegisterPage() {
             disabled={state.loading}
             autoComplete="current-password"
           />
-          {/* Forgot Password Link */}
-          <div className={styles.helpText}>
-            <span
-              onClick={() =>
-                toast.warning("This option is not available for now!")
-              }
-            >
-              Forgot Password?
-            </span>
-          </div>
           {/* Submit Button */}
           <Button
             variant="primary"

@@ -1,9 +1,15 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { PublicRoute, ProtectedRoute } from "@utils";
-import { LandingPage, Root, LoginPage, RegisterPage, BlogsPage } from "@pages";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { PublicRoute, ProtectedRoute, ValidateRoute } from "@utils";
+import {
+  LandingPage,
+  DashboardPage,
+  AnalyticsPage,
+  LoginPage,
+  RegisterPage,
+  BlogsPage,
+} from "@pages";
 import { MainLayout } from "@layouts";
-import { generateFakeToken } from "@utils";
-import { STORAGE_KEY_TOKEN } from "@constants";
+import {} from "./pages";
 
 const router = createBrowserRouter([
   // Public Routes (No login required)
@@ -21,17 +27,58 @@ const router = createBrowserRouter([
     element: <ProtectedRoute />,
     children: [
       {
-        path: "admin",
+        path: "home",
         element: <MainLayout />,
+        handle: { breadcrumb: "Home" },
         children: [
-          { index: true, element: <Root /> },
+          {
+            index: true,
+            element: <DashboardPage />,
+            handle: { breadcrumb: "Dashboard" },
+          },
+          {
+            path: "analytics",
+            element: <AnalyticsPage />,
+            handle: { breadcrumb: "Analytics" },
+          },
+          {
+            path: "profile",
+            element: <div>Profile Page</div>,
+            handle: { breadcrumb: "Profile" },
+          },
+          {
+            path: "users",
+            element: <Outlet />,
+            handle: { breadcrumb: "Users" },
+            children: [
+              { index: true, element: <div>Users Page</div> },
+              {
+                path: ":id",
+                element: <ValidateRoute />,
+                handle: ({ params }) => `Profile #${params.id}`,
+                children: [{ index: true, element: <div>User Detail</div> }],
+              },
+            ],
+          },
           {
             path: "blog",
-            element: <BlogsPage />,
-            children: [{ path: ":id", element: <div>Post Details</div> }],
+            element: <Outlet />,
+            handle: { breadcrumb: "Blog" },
+            children: [
+              { index: true, element: <BlogsPage /> },
+              {
+                path: ":id",
+                element: <ValidateRoute />,
+                handle: ({ params }) => `Profile #${params.id}`,
+                children: [{ index: true, element: <div>Blog Details</div> }],
+              },
+            ],
           },
-          // { path: "users", element: <Users /> },
-          // { path: "settings", element: <Settings /> },
+          {
+            path: "settings",
+            element: <div>Settings Page</div>,
+            handle: { breadcrumb: "Settings" },
+          },
         ],
       },
     ],
@@ -39,13 +86,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const t = generateFakeToken();
-  // localStorage.setItem(STORAGE_KEY_TOKEN, t);
-  // localStorage.clear();
-
-
-  document.documentElement.setAttribute("theme-mode", "dark");
-
   return <RouterProvider router={router} />;
 }
 

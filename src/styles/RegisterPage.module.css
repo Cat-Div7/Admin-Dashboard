@@ -9,13 +9,6 @@
   --slate-900: #0f172a;
 }
 
-/* Dark Mode Variables */
-.dark {
-  --text-primary: #f3f4f6;
-  --text-secondary: #d1d5db;
-  --border-color: #374151;
-}
-
 /* ===== OVERLAY & BLOBS ===== */
 .overlay {
   position: fixed;
@@ -35,7 +28,7 @@
   overflow: hidden;
 }
 
-.dark .overlay {
+[theme-mode="dark"] .overlay {
   background: linear-gradient(
     to br,
     var(--bg-dark) 0%,
@@ -99,23 +92,14 @@
 
 /* ===== FORM CONTAINER ===== */
 .formContainer {
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  background: var(--card-bg);
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 400px;
   animation: slideUp 0.4s ease;
-  position: relative;
-  z-index: 10;
-}
-
-.dark .formContainer {
-  background: rgba(10, 10, 25, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @keyframes slideUp {
@@ -150,92 +134,31 @@
   margin: 0.5rem 0 0 0;
 }
 
-/* ===== INPUT FIELDS ===== */
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.helpText {
+  text-align: right;
+  margin-top: 0.5rem;
 }
 
-.formGroup label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-primary);
+.helpText span {
+  color: var(--primary);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: var(--main-trans);
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-.dark .formGroup label {
-  color: #cbd5e1;
-}
-
-.inputWrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.inputWrapper .material-symbols-outlined {
-  position: absolute;
-  left: 1rem;
-  color: var(--text-light);
-  pointer-events: none;
-}
-
-.formGroup input {
-  width: 100%;
-  padding: 0.75rem;
-  padding-left: 3rem;
-  border: 1px solid var(--slate-300);
-  border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: var(--text-primary);
-  font-size: 0.875rem;
-  transition: all 0.2s ease;
-}
-
-.dark .formGroup input {
-  border-color: var(--slate-600);
-  background-color: rgba(15, 23, 42, 0.5);
-  color: var(--white);
-}
-
-.formGroup input::placeholder {
-  color: var(--slate-400);
-}
-
-.dark .formGroup input::placeholder {
-  color: var(--slate-500);
-}
-
-.formGroup input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(55, 19, 236, 0.1);
+.helpText span:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
 }
 
 /* ===== BUTTON ===== */
 .submitButton {
   width: 100%;
   margin-top: 1rem;
-  padding: 0.75rem;
-  background-color: var(--primary);
-  color: var(--white);
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  letter-spacing: 0.5px;
-}
-
-.submitButton:hover:not(:disabled) {
-  background-color: var(--primary-hover);
-  box-shadow: 0 4px 12px rgba(55, 19, 236, 0.3);
 }
 
 .submitButton:disabled {
@@ -248,8 +171,9 @@
 .loadingSpinner {
   width: 16px;
   height: 16px;
+  margin-right: 0.5rem;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top-color: var(--white);
+  border-top-color: white;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -281,53 +205,9 @@
   text-decoration: underline;
 }
 
-/* ===== BACK BUTTON ===== */
-.backButton {
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.5rem;
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: var(--main-trans);
-  font-size: 1.5rem;
-}
-
-.dark .backButton {
-  background-color: rgba(10, 10, 25, 0.3);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: var(--white);
-}
-
-.backButton:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.dark .backButton:hover {
-  background-color: rgba(10, 10, 25, 0.5);
-}
-
 /* ===== RESPONSIVE ===== */
 @media (max-width: 640px) {
-  .formContainer {
-    padding: 2rem;
-    width: 95%;
-  }
-
   .heading h1 {
     font-size: 1.5rem;
-  }
-
-  .backButton {
-    width: 36px;
-    height: 36px;
   }
 }

@@ -1,6 +1,5 @@
 import {
   faChartLine,
-  faUsers,
   faSliders,
   faArrowUp,
   faArrowLeft,
@@ -9,7 +8,20 @@ import {
   faEye,
   faEyeSlash,
   faUser,
+  faChartBar,
+  faUsers,
+  faCog,
+  faAngleDoubleLeft,
+  faAddressCard,
+  faChartPie,
+  faNewspaper,
+  faFileLines,
+  faRightFromBracket,
+  faBell,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+
+import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
 
 import {
   faFacebookF,
@@ -35,6 +47,31 @@ export const formIcons = {
 
 export const navigationIcons = {
   arrowLeft: faArrowLeft,
+};
+
+export const themeIcons = {
+  sun: faSun,
+  moon: faMoon,
+};
+
+export const sidebarIcons = {
+  dashboard: faChartBar,
+  analytics: faChartPie,
+  adminProfile: faAddressCard,
+  users: faUsers,
+  userProfile: faUser,
+  blog: faNewspaper,
+  blogDetails: faFileLines,
+  settings: faCog,
+  dobuleAngle: faAngleDoubleLeft,
+  logout: faRightFromBracket,
+};
+
+export const topNavIcons = {
+  sun: faSun,
+  moon: faMoon,
+  bell: faBell,
+  search: faSearch,
 };
 
 export {

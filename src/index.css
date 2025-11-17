@@ -17,6 +17,10 @@
   --section-bg: #f9fafb;
   --primary-hover: #4f46e5;
 
+  --subnav-border-color: #777;
+  --subnav-active: black;
+  --danger-color: #ff4d4d;
+
   /* Gradients */
   --gradient-bg: linear-gradient(
     135deg,
@@ -34,7 +38,7 @@
 [theme-mode="dark"] {
   color: #ffffffde;
 
-  --background: #101a22;
+  --background: #0f172a;
   --card-bg: #1f2937;
   /* --dash-card-bg:; */
   --border-color: #334155;
@@ -44,6 +48,10 @@
   --muted-star: #475569;
 
   --section-bg: #101a22;
+
+  --subnav-color: #999;
+  --subnav-active: white;
+  --danger-color: #ff6b6b;
 
   /* Dark Mode Gradient */
   --gradient-bg: linear-gradient(
@@ -64,6 +72,24 @@ html {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-hover);
+}
 a {
   font-weight: 500;
   text-decoration: inherit;
@@ -72,7 +98,7 @@ a {
 
 body {
   min-height: 100vh;
-  background-color: var(--background);
+  background: var(--background);
   transition: var(--smooth-trans);
 }
 

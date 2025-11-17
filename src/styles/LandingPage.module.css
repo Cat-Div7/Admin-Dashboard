@@ -196,6 +196,7 @@
   position: relative;
   padding: 5rem 0;
   overflow: hidden;
+  background: var(--background);
   scroll-snap-align: start;
 }
 
@@ -284,7 +285,9 @@
 
 .featuresSection {
   padding: 5rem 0;
-  scroll-snap-align: start;}
+  scroll-snap-align: start;
+  background: var(--background);
+}
 
 @media (min-width: 640px) {
   .featuresSection {
@@ -452,6 +455,7 @@
 .aboutSection {
   padding: 5rem 0;
   scroll-snap-align: start;
+  background: var(--background);
 }
 
 @media (min-width: 640px) {

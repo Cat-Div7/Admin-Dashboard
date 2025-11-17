@@ -1,0 +1,265 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 0;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  flex-grow: 1;
+  padding: 0;
+  list-style: none;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--main-trans);
+  font-family: inherit;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.jccP4 {
+  justify-content: center;
+  padding: 1rem !important;
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.navItem:hover {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.navItemActive {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: var(--main-trans);
+  font-family: inherit;
+  font-size: 0.875rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navItemActive:hover {
+  background-color: var(--primary-hover);
+}
+
+.navLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-left: 2rem;
+  margin-top: 0.5rem;
+  animation: slideDown 0.2s ease;
+  position: relative;
+  /* &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12px;
+    background-color: #999;
+    height: 40%;
+    width: 1px;
+  } */
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.submenuItem {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--main-trans);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  text-decoration: none;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -20px;
+    border: 1px solid var(--subnav-border-color);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    width: 14px;
+    height: 23px;
+    border-end-start-radius: 12px;
+    display: inline-block;
+  }
+
+  p {
+    margin-left: 0.5rem;
+  }
+}
+
+.submenuItem:hover {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.submenuItemActive {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  border: none;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  cursor: pointer;
+  transition: var(--main-trans);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -20px;
+    border: 1px solid var(--subnav-active);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    width: 14px;
+    height: 23px;
+    border-end-start-radius: 12px;
+    display: inline-block;
+  }
+  p {
+    margin-left: 0.5rem;
+  }
+}
+
+.footer {
+  width: 100%;
+}
+
+.toggleButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 0.75rem;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--main-trans);
+  margin-top: 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.toggleButton:hover {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.toggleButton svg {
+  transition: var(--main-trans);
+}
+
+.buttons {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.logoutBtn {
+  color: var(--danger-color);
+
+  &:hover {
+    color: red;
+  }
+}

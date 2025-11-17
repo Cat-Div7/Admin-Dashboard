@@ -2,11 +2,12 @@
 export const STORAGE_KEY_ACCOUNTS = "app_accounts";
 export const STORAGE_KEY_USER_ID = "app_user_id";
 export const STORAGE_KEY_TOKEN = "app_token";
+export const STORAGE_KEY_WELCOME = 'welcomeMessage'
 
 // Routing Path
 export const REGISTER_PATH = "/register";
 export const LOGIN_PATH = "/login";
-export const ADMIN_PATH = "/admin";
+export const HOME_PATH = "/home";
 
 // Landing Sections
 // Features Data Factory

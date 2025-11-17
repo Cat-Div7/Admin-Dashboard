@@ -34,3 +34,10 @@
   cursor: not-allowed;
   transform: none;
 }
+
+@media (max-width: 640px) {
+  .backButton {
+    width: 36px;
+    height: 36px;
+  }
+}
