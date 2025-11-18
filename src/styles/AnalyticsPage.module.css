@@ -298,7 +298,7 @@
   display: grid;
   grid-auto-flow: column;
   gap: 1.5rem;
-  grid-template-rows: 1fr auto;
+  /* grid-template-rows: 1fr auto; */
   align-items: end;
   justify-items: center;
   min-height: 180px;
@@ -356,4 +356,21 @@
 
 [theme-mode="dark"] .pieRing3 {
   stroke: #4c1d95;
+}
+
+
+
+span {
+  animation: color 9s ;
+}
+@keyframes color {
+  0% {
+    border-color: gray;
+  }
+  50% {
+    border-color: red;
+  }
+  100% {
+    border-color: black;
+  }
 }

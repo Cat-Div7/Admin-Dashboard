@@ -15,7 +15,7 @@ function BlogPost({ post }) {
           <h3 className={styles.blogTitle}>{post.title}</h3>
           <p className={styles.blogDescription}>{post.description}</p>
         </div>
-        <Link to={`admin/blog/${post.id}`} className={styles.blogLink}>
+        <Link to={`home/blog/${post.id}`} className={styles.blogLink}>
           Read More
           <span className={styles.arrow}>→</span>
         </Link>
