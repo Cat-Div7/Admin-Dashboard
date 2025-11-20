@@ -1,15 +1,27 @@
-import { useContext, useEffect, useState } from "react";
-import { topNavIcons } from "@utils";
-import styles from "@styles/Navbar.module.css";
-import { FontIcon } from "@components";
-import { ThemeContext } from "@root/context";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useMatches } from "react-router-dom";
+import { topNavIcons } from "@utils";
+import { FontIcon, NotificationModal, AvatarModal } from "@components";
+import { ThemeContext } from "@context";
+import { useClickOutside } from "@hooks";
 import userAvatar from "../../assets/userAvatar.png";
+import styles from "@styles/Navbar.module.css";
 
 function Navbar() {
   const matches = useMatches();
   const [smallScreen, setSmallScreen] = useState(false);
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const [isAvatarOpen, setIsAvatarOpen] = useState(false);
+
+  // Refs
+  const notificationRef = useRef(null);
+  const avatarRef = useRef(null);
+
+  // Context
   const { isDark, toggleTheme } = useContext(ThemeContext);
+
+  useClickOutside(notificationRef, () => setIsNotificationsOpen(false));
+  useClickOutside(avatarRef, () => setIsAvatarOpen(false));
 
   const breadcrumbs = matches
     .filter((match) => match.handle?.breadcrumb)
@@ -24,8 +36,7 @@ function Navbar() {
       return bc;
     });
 
-  console.log(breadcrumbs);
-
+  // Scroll Function
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 786) {
@@ -66,9 +77,16 @@ function Navbar() {
         </label>
 
         <div className={styles.buttonGroup}>
-          <button className={styles.iconButton} title="Notifications">
+          <button
+            className={styles.iconButton}
+            onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+            title="Notifications"
+          >
             <FontIcon icon={topNavIcons.bell} />
           </button>
+
+          {isNotificationsOpen && <NotificationModal ref={notificationRef} />}
+
           <button
             className={styles.iconButton}
             title="Toggle Theme"
@@ -80,11 +98,14 @@ function Navbar() {
 
         <div
           className={styles.avatar}
+          onClick={() => setIsAvatarOpen(!isAvatarOpen)}
           title="User avatar"
           style={{
             backgroundImage: `url(${userAvatar})`,
           }}
         ></div>
+
+        {isAvatarOpen && <AvatarModal ref={avatarRef} close={setIsAvatarOpen} />}
       </div>
     </header>
   );

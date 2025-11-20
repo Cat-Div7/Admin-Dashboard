@@ -6,8 +6,8 @@ export * from "./ui/BackButton";
 export * from "./ui/FontIcon";
 export * from "./layout/Sidebar";
 export * from "./layout/Navbar";
-// export * from
-// export * from
+export * from "./ui/NotificationModal";
+export * from "./ui/AvatarModal";
 // export * from
 // export * from
 // export * from

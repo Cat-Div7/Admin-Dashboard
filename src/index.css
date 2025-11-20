@@ -84,7 +84,7 @@ html {
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary);
   border-radius: 20px;
-  transition: background-color 0.2s ease;
+  transition: var(--main-trans);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -99,7 +99,7 @@ a {
 body {
   min-height: 100vh;
   background: var(--background);
-  transition: var(--smooth-trans);
+  transition: var(--main-trans);
 }
 
 button {

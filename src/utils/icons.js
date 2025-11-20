@@ -74,6 +74,12 @@ export const topNavIcons = {
   search: faSearch,
 };
 
+export const avatarIcons = {
+  password: faLock,
+  settings: faCog,
+  logout: faRightFromBracket,
+};
+
 export {
   faArrowUp,
   faFacebookF,

@@ -4,7 +4,7 @@ import { FontIcon } from "@components";
 import { getUserData, themeIcons, sidebarIcons } from "@utils";
 import { CollapseContext, ThemeContext } from "@context";
 import { STORAGE_KEY_TOKEN, LOGIN_PATH } from "@constants";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 import styles from "@styles/Sidebar.module.css";
 
 const navItems = [
@@ -233,6 +233,19 @@ function Sidebar() {
           {!isCollapsed && <p className={styles.label}>Logout</p>}
         </button>
       </div>
+
+      <Toaster
+        position="top-center"
+        richColors
+        closeButton
+        duration={2500}
+        toastOptions={{
+          style: {
+            borderRadius: "10px",
+            background: "var(--background)",
+          },
+        }}
+      />
     </div>
   );
 }
