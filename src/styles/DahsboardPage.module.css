@@ -1,5 +1,3 @@
-/* DashboardPage.module.css */
-
 .main {
   display: flex;
   flex-direction: column;
@@ -23,7 +21,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.75rem;
-  background-color: rgb(226, 232, 240);
+  background: var(--background);
   padding: 0.25rem;
   gap: 0;
 }
@@ -45,12 +43,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
+/* 
 .segmentLabel:has(.segmentInput:checked) {
   background-color: white;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   color: rgb(30, 41, 59);
-}
+} */
 
 .segmentInput {
   display: none;
@@ -108,46 +106,27 @@
   gap: 0.5rem;
   padding: 1.5rem;
   border-radius: 0.75rem;
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--stats-card-bg);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-@media (prefers-color-scheme: dark) {
-  .statsCard {
-    background: rgba(15, 23, 42, 0.5);
-    border: 1px solid rgba(71, 85, 105, 0.3);
-  }
+  border: 1px solid var(--border-color);
 }
 
 .statsTitle {
-  color: rgb(100, 116, 139);
+  color: var(--text-secondary);
   font-size: 1rem;
   font-weight: 500;
   margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  .statsTitle {
-    color: rgb(209, 213, 219);
-  }
-}
-
 .statsValue {
-  color: rgb(15, 23, 42);
+  color: var(--text-primary);
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-@media (prefers-color-scheme: dark) {
-  .statsValue {
-    color: white;
-  }
 }
 
 .statsChange {
@@ -157,7 +136,7 @@
 }
 
 .changePercent {
-  color: rgb(34, 197, 94);
+  color: var(--success-color);
   font-size: 1rem;
   font-weight: 500;
   display: flex;
@@ -167,7 +146,7 @@
 }
 
 .changePercent.negative {
-  color: rgb(239, 68, 68);
+  color: var(--danger-color);
 }
 
 .arrow {
@@ -181,7 +160,7 @@
   margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
+[theme-mode="dark"] {
   .changeComparison {
     color: rgb(156, 163, 175);
   }
@@ -191,7 +170,7 @@
   display: flex;
   min-height: 7.5rem;
   flex: 1;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: flex-end;
 }
 
@@ -202,7 +181,7 @@
 
 /* Section Header */
 .sectionHeader {
-  color: rgb(15, 23, 42);
+  color: var(--text-primary);
   font-size: 1.375rem;
   font-weight: 700;
   padding: 0 1rem 0.75rem 1rem;
@@ -210,74 +189,67 @@
   letter-spacing: -0.015em;
 }
 
-@media (prefers-color-scheme: dark) {
-  .sectionHeader {
-    color: white;
-  }
-}
-
 /* Table */
 .tableContainer {
   padding: 1rem;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+.scrollArea {
+  overflow-x: auto;
+  width: 100%;
 }
 
 .tableWrapper {
-  overflow-x: auto;
   border-radius: 0.75rem;
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--card-bg);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-@media (prefers-color-scheme: dark) {
-  .tableWrapper {
-    background: rgba(15, 23, 42, 0.5);
-    border: 1px solid rgba(71, 85, 105, 0.3);
-  }
+  border: 1px solid var(--border-color);
+  min-width: 950px;
+  margin-bottom: 0.15rem;
+  overflow: hidden;
+  transition: var(--main-trans);
 }
 
 .table {
   width: 100%;
   text-align: left;
+  border-collapse: collapse;
 }
 
 .tableHead {
   font-size: 0.875rem;
-  color: rgb(71, 85, 105);
-  border-bottom: 1px solid rgba(100, 116, 139, 0.3);
-}
-
-@media (prefers-color-scheme: dark) {
-  .tableHead {
-    color: rgb(209, 213, 219);
-    border-bottom-color: rgba(71, 85, 105, 0.5);
-  }
+  color: var(--text-secondary);
 }
 
 .tableHead th {
   padding: 1rem 1.5rem;
   font-weight: 500;
-}
-
-.tableBody {
-  color: rgb(30, 41, 59);
-}
-
-@media (prefers-color-scheme: dark) {
-  .tableBody {
-    color: rgb(226, 232, 240);
-  }
+  border-bottom: 1px solid var(--border-color);
 }
 
 .tableBody tr {
   border-bottom: 1px solid rgba(100, 116, 139, 0.3);
+  transition: var(--main-trans);
+  cursor: pointer;
 }
 
-@media (prefers-color-scheme: dark) {
-  .tableBody tr {
-    border-bottom-color: rgba(71, 85, 105, 0.5);
-  }
+.tableBody tr:hover {
+  background-color: rgba(148, 163, 184, 0.1);
+}
+
+.tableBody tr:last-child {
+  border-bottom: none;
+}
+
+[theme-mode="dark"] .tableBody tr {
+  border-bottom-color: rgba(71, 85, 105, 0.5);
+}
+
+[theme-mode="dark"] .tableBody tr:hover {
+  background-color: rgba(71, 85, 105, 0.2);
 }
 
 .tableBody td {
@@ -308,7 +280,7 @@
   margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
+[theme-mode="dark"] {
   .userEmail {
     color: rgb(156, 163, 175);
   }
@@ -327,44 +299,66 @@
   color: rgb(22, 101, 52);
 }
 
-@media (prefers-color-scheme: dark) {
-  .statusGreen {
-    background-color: rgba(5, 46, 22, 0.5);
-    color: rgb(134, 239, 172);
-  }
+[theme-mode="dark"] .statusGreen {
+  background-color: rgba(5, 46, 22, 0.5);
+  color: rgb(134, 239, 172);
 }
+
+/* --------------------------- */
 
 .statusBlue {
   background-color: rgb(219, 234, 254);
   color: rgb(30, 58, 138);
 }
 
-@media (prefers-color-scheme: dark) {
-  .statusBlue {
-    background-color: rgba(7, 29, 102, 0.5);
-    color: rgb(147, 197, 253);
-  }
+[theme-mode="dark"] .statusBlue {
+  background-color: rgba(7, 29, 102, 0.5);
+  color: rgb(147, 197, 253);
 }
+
+/* --------------------------- */
 
 .statusYellow {
   background-color: rgb(254, 243, 199);
   color: rgb(113, 63, 18);
 }
 
-@media (prefers-color-scheme: dark) {
-  .statusYellow {
-    background-color: rgba(51, 37, 6, 0.5);
-    color: rgb(253, 224, 71);
-  }
+[theme-mode="dark"] .statusYellow {
+  background-color: rgba(51, 37, 6, 0.5);
+  color: rgb(253, 224, 71);
+}
+
+/* --------------------------- */
+
+.statusRed {
+  background-color: rgb(254, 226, 226);
+  color: rgb(127, 29, 29);
+}
+
+[theme-mode="dark"] .statusRed {
+  background-color: rgba(63, 13, 13, 0.5);
+  color: rgb(252, 165, 165);
+}
+
+/* --------------------------- */
+
+.statusPurple {
+  background-color: rgb(243, 232, 255);
+  color: rgb(88, 28, 135);
+}
+
+[theme-mode="dark"] .statusPurple {
+  background-color: rgba(59, 13, 92, 0.5);
+  color: rgb(216, 180, 254);
 }
 
 .detailsLink {
   font-weight: 500;
-  color: var(--primary-color, #1313ec);
+  color: var(--primary);
   text-decoration: none;
-  transition: text-decoration 0.2s ease;
+  transition: var(--main-trans);
 }
 
 .detailsLink:hover {
-  text-decoration: underline;
+  color: var(--primary-hover);
 }

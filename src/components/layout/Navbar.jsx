@@ -105,7 +105,9 @@ function Navbar() {
           }}
         ></div>
 
-        {isAvatarOpen && <AvatarModal ref={avatarRef} close={setIsAvatarOpen} />}
+        {isAvatarOpen && (
+          <AvatarModal ref={avatarRef} close={setIsAvatarOpen} />
+        )}
       </div>
     </header>
   );

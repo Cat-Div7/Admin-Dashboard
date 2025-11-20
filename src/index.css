@@ -8,7 +8,11 @@
   --primary-light: rgba(99, 102, 241, 0.1);
   --background: #f6f7f8;
   --card-bg: #ffffff;
-  /* --dash-card-bg:; */
+  --stats-card-bg: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1) 0%,
+    rgba(99, 102, 241, 0.05) 100%
+  );
   --border-color: #cbd5e1;
   --text-primary: #111827;
   --text-secondary: #6b7280;
@@ -20,6 +24,9 @@
   --subnav-border-color: #777;
   --subnav-active: black;
   --danger-color: #ff4d4d;
+  --success-color: #22c55e;
+
+  --gray-50: #d1d5db80;
 
   /* Gradients */
   --gradient-bg: linear-gradient(
@@ -39,8 +46,12 @@
   color: #ffffffde;
 
   --background: #0f172a;
-  --card-bg: #1f2937;
-  /* --dash-card-bg:; */
+  --card-bg: rgba(15, 23, 42, 0.9);
+  /* --stats-card-bg: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1) 0%,
+    rgba(99, 102, 241, 0.05) 100%
+  ); */
   --border-color: #334155;
   --text-primary: #ffffff;
   --text-secondary: #9ca3af;

@@ -37,7 +37,7 @@
   height: 2.5rem;
   padding: 0 1rem;
   border: none;
-  background-color: rgba(209, 213, 219, 0.5);
+  background-color: var(--gray-50);
   color: var(--text-primary);
   font-size: 0.875rem;
   font-weight: bold;
@@ -83,14 +83,10 @@
   gap: 0.5rem;
   border-radius: 0.75rem;
   padding: 1.5rem;
-  background: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.1) 0%,
-    rgba(99, 102, 241, 0.05) 100%
-  );
+  background: var(--stats-card-bg);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   transition: var(--main-trans);
 }
 
@@ -117,7 +113,7 @@
 }
 
 .trendPositive {
-  color: #22c55e;
+  color: var(--success-color);
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
@@ -159,14 +155,10 @@
   gap: 0.5rem;
   border-radius: 0.75rem;
   padding: 1.5rem;
-  background: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.1) 0%,
-    rgba(99, 102, 241, 0.05) 100%
-  );
+  background: var(--stats-card-bg);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .chart {
@@ -356,21 +348,4 @@
 
 [theme-mode="dark"] .pieRing3 {
   stroke: #4c1d95;
-}
-
-
-
-span {
-  animation: color 9s ;
-}
-@keyframes color {
-  0% {
-    border-color: gray;
-  }
-  50% {
-    border-color: red;
-  }
-  100% {
-    border-color: black;
-  }
 }

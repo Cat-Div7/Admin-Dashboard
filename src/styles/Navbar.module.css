@@ -1,21 +1,24 @@
+:root {
+  --top-nav-btns: var(--gray-50);
+}
+
+[theme-mode="dark"] {
+  --top-nav-btns: #232348;
+}
+
 /* Header Base Styles */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   white-space: nowrap;
-  border-bottom: 1px solid rgba(209, 213, 219, 0.1);
+  border-bottom: 1px solid var(--border-color);
   padding: 0.75rem 1.5rem;
   position: sticky;
   top: 0;
   background-color: var(--background);
   z-index: 10;
   transition: var(--main-trans);
-}
-
-[theme-mode="dark"] .header {
-  background-color: rgba(15, 23, 42, 0.8);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Left Section */
@@ -32,7 +35,7 @@
   line-height: 1.5;
   letter-spacing: -0.015em;
   margin: 0;
-  transition: color 0.3s ease;
+  transition: var(--main-trans);
 }
 
 /* Right Section */
@@ -58,7 +61,7 @@
   left: 0.75rem;
   color: var(--text-secondary);
   pointer-events: none;
-  transition: color 0.2s ease;
+  transition: var(--main-trans);
 }
 
 .searchInput {
@@ -66,13 +69,13 @@
   height: 2.5rem;
   border: none;
   border-radius: 0.5rem;
-  background-color: rgba(209, 213, 219, 0.5);
+  background-color: var(--top-nav-btns);
   color: var(--text-primary);
   padding: 0 1rem 0 2.5rem;
   font-size: 0.875rem;
   font-family: inherit;
   outline: none;
-  transition: all 0.2s ease;
+  transition: var(--main-trans);
 }
 
 .searchInput::placeholder {
@@ -81,12 +84,7 @@
 
 .searchInput:focus {
   outline: none;
-  ring: 2px;
   box-shadow: 0 0 0 2px var(--primary);
-}
-
-[theme-mode="dark"] .searchInput {
-  background-color: #232348;
 }
 
 /* Button Group */
@@ -105,7 +103,7 @@
   overflow: hidden;
   border-radius: 0.5rem;
   border: none;
-  background-color: rgba(209, 213, 219, 0.5);
+  background-color: var(--top-nav-btns);
   color: var(--text-primary);
   transition: all 0.2s ease;
   font-family: inherit;
@@ -115,10 +113,6 @@
 .iconButton:hover {
   background-color: rgba(209, 213, 219, 0.7);
   transform: scale(1.05);
-}
-
-[theme-mode="dark"] .iconButton {
-  background-color: #232348;
 }
 
 [theme-mode="dark"] .iconButton:hover {
@@ -135,7 +129,7 @@
   background-repeat: no-repeat;
   border-radius: 9999px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: var(--main-trans);
 }
 
 .avatar:hover {

@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "sonner";
 import { getUserData, avatarIcons } from "@utils";
@@ -8,6 +8,7 @@ import styles from "@styles/AvatarModal.module.css";
 
 const AvatarModal = forwardRef((props, ref) => {
   const { close } = props;
+  const [isOnline, setIsOnline] = useState(false);
   const navigate = useNavigate();
   const user = getUserData();
 
@@ -23,11 +24,39 @@ const AvatarModal = forwardRef((props, ref) => {
     close(false);
   };
 
+  useEffect(() => {
+    // Set Initial online State
+    setIsOnline(window.navigator.onLine);
+
+    // Handlers
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    // Event Listeners
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+
   return (
     <div ref={ref} className={styles.modal}>
       {/* Avatar Section */}
       <div className={styles.avatarSection}>
-        <div className={styles.avatar}>{user.avatarLetter}</div>
+        <div className={styles.avatar}>
+          {user.avatarLetter}
+          <span
+            className={styles.userState}
+            style={{
+              background: isOnline
+                ? "var(--success-color)"
+                : "var(--danger-color)",
+            }}
+          ></span>
+        </div>
       </div>
 
       {/* User Info */}

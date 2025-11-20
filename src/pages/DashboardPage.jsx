@@ -83,51 +83,53 @@ function DashboardPage() {
         {/* Activity Table */}
         {/* //TODO Move This and create local data and table */}
         <div className={styles.tableContainer}>
-          <div className={styles.tableWrapper}>
-            <table className={styles.table}>
-              <thead className={styles.tableHead}>
-                <tr>
-                  <th scope="col">User</th>
-                  <th scope="col">Activity</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Date</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody className={styles.tableBody}>
-                {activityData.map((activity) => (
-                  <tr key={activity.id}>
-                    <td className={styles.userCell}>
-                      <img
-                        src={activity.avatar}
-                        alt={activity.name}
-                        className={styles.avatar}
-                      />
-                      <div>
-                        <p className={styles.userName}>{activity.name}</p>
-                        <p className={styles.userEmail}>{activity.email}</p>
-                      </div>
-                    </td>
-                    <td>{activity.activity}</td>
-                    <td>
-                      <span
-                        className={`${styles.statusBadge} ${
-                          styles[`status${activity.statusColor}`]
-                        }`}
-                      >
-                        {activity.status}
-                      </span>
-                    </td>
-                    <td>{activity.date}</td>
-                    <td>
-                      <a href="#" className={styles.detailsLink}>
-                        Details
-                      </a>
-                    </td>
+          <div className={styles.scrollArea}>
+            <div className={styles.tableWrapper}>
+              <table className={styles.table}>
+                <thead className={styles.tableHead}>
+                  <tr>
+                    <th scope="col">User</th>
+                    <th scope="col">Activity</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Link</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className={styles.tableBody}>
+                  {activityData.map((activity) => (
+                    <tr key={activity.id}>
+                      <td className={styles.userCell}>
+                        <img
+                          src={activity.avatar}
+                          alt={activity.name}
+                          className={styles.avatar}
+                        />
+                        <div>
+                          <p className={styles.userName}>{activity.name}</p>
+                          <p className={styles.userEmail}>{activity.email}</p>
+                        </div>
+                      </td>
+                      <td>{activity.activity}</td>
+                      <td>
+                        <span
+                          className={`${styles.statusBadge} ${
+                            styles[`status${activity.statusColor}`]
+                          }`}
+                        >
+                          {activity.status}
+                        </span>
+                      </td>
+                      <td>{activity.date}</td>
+                      <td>
+                        <a href="#" className={styles.detailsLink}>
+                          Details
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </main>
