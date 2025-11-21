@@ -3,7 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* Colors */
   --primary: #6366f1;
   --primary-light: rgba(99, 102, 241, 0.1);
   --background: #f6f7f8;
@@ -28,7 +27,6 @@
 
   --gray-50: #d1d5db80;
 
-  /* Gradients */
   --gradient-bg: linear-gradient(
     135deg,
     rgba(99, 102, 241, 0.1) 0%,
@@ -36,7 +34,6 @@
     rgba(34, 197, 94, 0.1) 100%
   );
 
-  /* Transitions */
   --smooth-trans: all 0.4s ease;
   --main-trans: all 0.3s ease;
   --fast-trans: all 0.16ms ease;
@@ -47,11 +44,6 @@
 
   --background: #0f172a;
   --card-bg: rgba(15, 23, 42, 0.9);
-  /* --stats-card-bg: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.1) 0%,
-    rgba(99, 102, 241, 0.05) 100%
-  ); */
   --border-color: #334155;
   --text-primary: #ffffff;
   --text-secondary: #9ca3af;
@@ -64,7 +56,6 @@
   --subnav-active: white;
   --danger-color: #ff6b6b;
 
-  /* Dark Mode Gradient */
   --gradient-bg: linear-gradient(
     135deg,
     rgba(99, 102, 241, 0.2) 0%,

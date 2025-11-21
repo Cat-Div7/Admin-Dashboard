@@ -19,6 +19,10 @@ import {
   faRightFromBracket,
   faBell,
   faSearch,
+  faAngleRight,
+  faAngleLeft,
+  faAngleDoubleRight,
+  faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
@@ -78,6 +82,14 @@ export const avatarIcons = {
   password: faLock,
   settings: faCog,
   logout: faRightFromBracket,
+};
+
+export const paginationIcons = {
+  downSingle: faAngleDown,
+  leftDouble: faAngleDoubleLeft,
+  leftSingle: faAngleLeft,
+  rightDouble: faAngleDoubleRight,
+  rightSingle: faAngleRight,
 };
 
 export {

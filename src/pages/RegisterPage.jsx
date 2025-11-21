@@ -272,7 +272,7 @@ function RegisterPage() {
       {/* Form */}
       <div className={styles.formContainer}>
         {/* Go Back Button */}
-        <BackButton />
+        <BackButton absoliute={true} />
         {/* Heading */}
         <div className={styles.heading}>
           <h1>Create Account</h1>

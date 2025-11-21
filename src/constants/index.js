@@ -99,10 +99,10 @@ import manAvatar from "../assets/manAvatar.png";
 export const usersData = [
   {
     id: 1,
-    firstName: "Omar",
-    lastName: "Ashraf",
-    fullName: "Omar Ashraf",
-    email: "omarashraf1@example.com",
+    firstName: "Ahmed",
+    lastName: "Mohamed",
+    fullName: "Ahmed Mohamed",
+    email: "ahmedmohamed1@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
     createdAt: "2025-11-16T14:48:10.513Z",
@@ -502,9 +502,9 @@ export const usersData = [
 export const activityData = [
   {
     id: 1,
-    name: "Omar Ashraf",
-    email: "omarashraf1@example.com",
-    avatar: girlAvatar,
+    name: "Ahmed Mohamed",
+    email: "ahmedmohamed1@example.com",
+    avatar: boyAvatar,
     activity: "Logged In",
     status: "Successful",
     statusColor: "Green",

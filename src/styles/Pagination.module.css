@@ -1,0 +1,154 @@
+:root {
+  --pang-bg-color: white;
+  --gray-100: #f3f4f6;
+  --gray-600: #6b7280;
+  --gray-600-dark: #4b5563;
+  --gray-700: #374151;
+  --white: #ffffff;
+}
+
+[theme-mode="dark"] {
+  --pang-bg-color: #1f2937;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.select {
+  appearance: none;
+  background-color: var(--pang-bg-color);
+  color: var(--text-primary);
+  accent-color: var(--white);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  padding-right: 2rem;
+  font-size: inherit;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.select:focus {
+  outline: none;
+}
+
+[theme-mode="dark"] .select {
+  border-color: var(--border-color);
+}
+
+.selectIcon {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 0.5rem;
+  color: var(--text-primary);
+}
+
+.chevron {
+  font-size: 0.875rem;
+}
+
+.paginationList {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 2.5rem;
+  font-size: 1rem;
+  margin-left: -1px;
+}
+
+.navButton,
+.numButton,
+.ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  line-height: 1.5;
+  color: var(--gray-600);
+  background-color: var(--pang-bg-color);
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.navButton:hover,
+.numButton:hover {
+  background-color: var(--gray-100);
+}
+
+[theme-mode="dark"] {
+  .navButton:hover,
+  .numButton:hover {
+    background-color: var(--gray-700);
+    color: var(--white);
+  }
+}
+
+.navButton:first-of-type {
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+}
+
+.navButton:last-of-type {
+  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.paginationList li:last-child .navButton {
+  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.active {
+  z-index: 10;
+  color: var(--white);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.active:hover {
+  background-color: var(--primary-hover);
+}
+
+[theme-mode="dark"] {
+  .active {
+    background-color: var(--gray-700);
+    border-color: transparent;
+  }
+
+  .active:hover {
+    background-color: var(--gray-600-dark);
+  }
+}
+
+.ellipsis {
+  cursor: default;
+}

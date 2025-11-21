@@ -249,7 +249,7 @@ function LoginPage() {
       {/* Form */}
       <div className={styles.formContainer}>
         {/* Go Back Button */}
-        <BackButton />
+        <BackButton absoliute={true} />
         {/* Heading */}
         <div className={styles.heading}>
           <h1>Welcome Back</h1>

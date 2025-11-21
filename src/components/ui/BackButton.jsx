@@ -8,16 +8,17 @@ import styles from "@styles/BackButton.module.css";
  * @param {string} auxClass - Additional CSS classes
  * @param {object} icon - Icon object from fontawesome (default: navigationIcons.arrowLeft)
  */
-function BackButton({ auxClass = "", icon = navigationIcons.arrowLeft }) {
+function BackButton({ auxClass = "", icon = navigationIcons.arrowLeft, absoliute = false, ...rest }) {
   const navigate = useNavigate();
 
   return (
     <button
-      className={`${styles.backBtn} ${auxClass}`}
+      className={`${styles.backBtn} ${auxClass} ${absoliute ? styles.absolute : ""}`}
       onClick={() =>
         window.history.length > 2 ? navigate(-1) : navigate("..")
       }
       title="Go back"
+      {...rest}
     >
       <FontIcon icon={icon} />
       {/* <span>Back</span> */}

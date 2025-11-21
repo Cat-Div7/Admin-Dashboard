@@ -6,6 +6,7 @@ import { ThemeContext } from "@context";
 import { useClickOutside } from "@hooks";
 import userAvatar from "../../assets/userAvatar.png";
 import styles from "@styles/Navbar.module.css";
+import { BackButton } from "..";
 
 function Navbar() {
   const matches = useMatches();
@@ -53,6 +54,8 @@ function Navbar() {
 
   return (
     <header className={styles.header}>
+      {smallScreen && <BackButton style={{position: 'absolute'}} />}
+
       {!smallScreen && (
         <div className={styles.leftSection}>
           <h2 className={styles.title}>

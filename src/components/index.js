@@ -8,6 +8,6 @@ export * from "./layout/Sidebar";
 export * from "./layout/Navbar";
 export * from "./ui/NotificationModal";
 export * from "./ui/AvatarModal";
-// export * from
-// export * from
+export * from "./layout/UsersTable";
+export * from "./ui/Pagination";
 // export * from
