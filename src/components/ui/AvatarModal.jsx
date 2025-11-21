@@ -1,9 +1,9 @@
 import { forwardRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast, Toaster } from "sonner";
+import { Toaster } from "sonner";
+import { useLogout } from "@hooks";
 import { getUserData, avatarIcons } from "@utils";
 import { FontIcon } from "@components";
-import { LOGIN_PATH, STORAGE_KEY_TOKEN } from "@constants";
 import styles from "@styles/AvatarModal.module.css";
 
 const AvatarModal = forwardRef((props, ref) => {
@@ -12,12 +12,7 @@ const AvatarModal = forwardRef((props, ref) => {
   const navigate = useNavigate();
   const user = getUserData();
 
-  const handleLogout = async () => {
-    localStorage.removeItem(STORAGE_KEY_TOKEN);
-    toast.warning("Logging out..!");
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    navigate(LOGIN_PATH);
-  };
+  const handleLogout = useLogout();
 
   const navigateToSettings = () => {
     navigate("/home/settings");

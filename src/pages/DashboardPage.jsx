@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { toast, Toaster } from "sonner";
-import { STORAGE_KEY_WELCOME, activityData, statsCards } from "@constants";
+import { STORAGE_KEY_WELCOME, statsCards } from "@constants";
 import { getUserData } from "@utils";
 import styles from "@styles/DahsboardPage.module.css";
 import { UsersTable } from "@root/components";
@@ -28,7 +28,7 @@ function DashboardPage() {
         {/* Date Range Selector */}
         <div className={styles.header}>
           <div>
-            <h1 className={styles.title}>Welcome back {user.firstName}!</h1>
+            <h1 className={styles.title}>Welcome back, {user.firstName}!</h1>
             <p style={{ color: "var(--text-secondary)" }}>
               Home /
               <span style={{ color: "var(--text-primary)" }}> Dashboard</span>

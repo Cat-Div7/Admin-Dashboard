@@ -2,7 +2,7 @@ import { useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import { formIcons, generateFakeToken, hashPassword } from "@utils";
-import { FormInput, Button, BackButton } from "@components";
+import { FormInput, Button, BackButton, Loader } from "@components";
 import {
   STORAGE_KEY_ACCOUNTS,
   STORAGE_KEY_USER_ID,
@@ -314,8 +314,12 @@ function LoginPage() {
             disabled={state.loading}
             onClick={handleFirstAlerts}
           >
-            {state.loading && <div className={styles.loadingSpinner}></div>}
-            {state.loading ? "Signing in..." : "Login"}
+            {state.loading && <Loader />}
+            {state.loading ? (
+              <span style={{ marginLeft: "0.25rem" }}>Signing in...</span>
+            ) : (
+              "Login"
+            )}
           </Button>
         </form>
 

@@ -10,4 +10,4 @@ export * from "./ui/NotificationModal";
 export * from "./ui/AvatarModal";
 export * from "./layout/UsersTable";
 export * from "./ui/Pagination";
-// export * from
+export * from './Loader'

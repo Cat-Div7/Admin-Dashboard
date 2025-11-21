@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { FontIcon } from "@components";
 import { getUserData, themeIcons, sidebarIcons } from "@utils";
 import { CollapseContext, ThemeContext } from "@context";
-import { STORAGE_KEY_TOKEN, LOGIN_PATH } from "@constants";
-import { toast, Toaster } from "sonner";
+import { useLogout } from "@hooks";
+import { Toaster } from "sonner";
 import styles from "@styles/Sidebar.module.css";
 
 const navItems = [
@@ -63,7 +63,6 @@ const navItems = [
 ];
 
 function Sidebar() {
-  const navigate = useNavigate();
   const user = getUserData();
   const { pathname } = useLocation();
   const { isCollapsed, toggleCollapse } = useContext(CollapseContext);
@@ -84,12 +83,7 @@ function Sidebar() {
     return () => window.removeEventListener("resize", handleResize);
   }, [setSmallScreen]);
 
-  const handleLogout = async () => {
-    localStorage.removeItem(STORAGE_KEY_TOKEN);
-    toast.warning("Logging out..!");
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    navigate(LOGIN_PATH);
-  };
+  const handleLogout = useLogout();
 
   const subNav = (item, isActive, currentId, requiredId, path) => {
     return (
