@@ -305,12 +305,6 @@
   background-color: var(--primary-hover);
 }
 
-@media (min-width: 480px) {
-  .buttonPrimary {
-    flex: auto;
-  }
-}
-
 .buttonSecondary {
   display: flex;
   min-width: 5.25rem;
@@ -337,7 +331,10 @@
   background-color: #cbd5e1;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 280px) {
+  .buttonPrimary {
+    flex: auto;
+  }
   .buttonSecondary {
     flex: auto;
   }

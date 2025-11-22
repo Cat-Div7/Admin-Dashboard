@@ -13,9 +13,23 @@ function ProfilePage() {
   const [accentColor, setAccentColor] = useState(savedAccent);
   const [formData, setFormData] = useState(user);
 
+  // Committed Changes
+  const [appearanceData, setAppearanceData] = useState({
+    isDark: isDark,
+    accentColor: savedAccent,
+  });
+
+  // Temporary Changes
+  const [draftAppearance, setDraftAppearance] = useState({
+    isDark: isDark,
+    accentColor: savedAccent,
+  });
+
   const colors = ["#6366f1", "#d946ef", "#f43f5e", "#14b8a6", "#f97316"];
 
   const hasFormChanges = JSON.stringify(formData) !== JSON.stringify(user);
+  const hasApperanceChanges =
+    JSON.stringify(draftAppearance) !== JSON.stringify(appearanceData);
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -25,16 +39,25 @@ function ProfilePage() {
     }));
   };
 
-  const handleDiscard = () => {
+  const handleFormDiscard = () => {
     setFormData(user);
   };
 
+  const handleAppearanceDiscard = () => {
+    setDraftAppearance(appearanceData);
+  };
+
   const handleSave = () => {
-    // Save logic here
+    // Save profile changes
     console.log("Saving:", formData);
   };
 
-  useEffect(() => {}, []);
+  const handleAppearanceSave = () => {
+    // Commit appearance changes on save click
+    setAppearanceData(draftAppearance);
+    setIsDark(draftAppearance.isDark);
+    setAccentColor(draftAppearance.accentColor);
+  };
 
   useEffect(() => {
     document.documentElement.style.setProperty("--primary", accentColor);
@@ -116,7 +139,7 @@ function ProfilePage() {
                 <div className={styles.buttonGroup}>
                   <button
                     className={styles.buttonSecondary}
-                    onClick={handleDiscard}
+                    onClick={handleFormDiscard}
                   >
                     <span>Discard</span>
                   </button>
@@ -176,9 +199,22 @@ function ProfilePage() {
             className={`${styles.cardHeader} ${styles.cardHeaderWithButton}`}
           >
             <h2 className={styles.cardTitle}>Theme & Display</h2>
-            <button className={styles.buttonPrimary}>
-              <span>Save</span>
-            </button>
+            {hasApperanceChanges && (
+              <div className={styles.buttonGroup}>
+                <button
+                  className={styles.buttonSecondary}
+                  onClick={handleAppearanceDiscard}
+                >
+                  <span>Discard</span>
+                </button>
+                <button
+                  className={styles.buttonPrimary}
+                  onClick={handleAppearanceSave}
+                >
+                  <span>Save</span>
+                </button>
+              </div>
+            )}
           </div>
           <div className={styles.cardDivide}>
             <div className={styles.settingRow}>
@@ -191,18 +227,28 @@ function ProfilePage() {
               <div className={styles.themeToggle}>
                 <button
                   className={`${styles.themeButton} ${
-                    !isDark ? styles.active : ""
+                    !draftAppearance.isDark ? styles.active : ""
                   }`}
-                  onClick={() => setIsDark(false)}
+                  onClick={() =>
+                    setDraftAppearance((prev) => ({
+                      ...prev,
+                      isDark: false,
+                    }))
+                  }
                 >
                   <span>L</span>
                   Light
                 </button>
                 <button
                   className={`${styles.themeButton} ${
-                    isDark ? styles.active : ""
+                    draftAppearance.isDark ? styles.active : ""
                   }`}
-                  onClick={() => setIsDark(true)}
+                  onClick={() =>
+                    setDraftAppearance((prev) => ({
+                      ...prev,
+                      isDark: true,
+                    }))
+                  }
                 >
                   <span>D</span>
                   Dark
@@ -221,10 +267,17 @@ function ProfilePage() {
                   <button
                     key={color}
                     className={`${styles.colorButton} ${
-                      accentColor === color ? styles.selectedColor : ""
+                      draftAppearance.accentColor === color
+                        ? styles.selectedColor
+                        : ""
                     }`}
                     style={{ backgroundColor: color }}
-                    onClick={() => setAccentColor(color)}
+                    onClick={() =>
+                      setDraftAppearance((prev) => ({
+                        ...prev,
+                        accentColor: color,
+                      }))
+                    }
                   />
                 ))}
               </div>
