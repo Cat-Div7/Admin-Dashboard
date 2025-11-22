@@ -198,6 +198,7 @@ function RegisterPage() {
         firstName: state.username.split(" ")[0],
         lastName: state.username.split(" ")[1],
         createdAt: new Date().toISOString(),
+        bio: "",
       };
 
       toast.success("Congrats, User Created Succesfully");

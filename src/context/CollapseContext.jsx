@@ -1,16 +1,15 @@
 import { createContext, useEffect } from "react";
 import { useStorage } from "@hooks";
+import { STORAGE_KEY_COLLAPSE_NAV } from "@constants";
 
 const CollapseContext = createContext({
   isCollapsed: false,
   setIsCollapsed: () => {},
 });
 
-const STORAGE_KEY_COLLAPSE = "collapseNav";
-
 function CollapseContextProvider({ children }) {
   const { value: isCollapsed, setValue: setIsCollapsed } = useStorage(
-    STORAGE_KEY_COLLAPSE,
+    STORAGE_KEY_COLLAPSE_NAV,
     false
   );
 

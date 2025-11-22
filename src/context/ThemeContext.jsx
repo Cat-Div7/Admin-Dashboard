@@ -1,12 +1,11 @@
 import { createContext, useCallback } from "react";
 import { useStorage } from "@hooks";
+import { STORAGE_KEY_THEME_MODE } from "@constants";
 
 const ThemeContext = createContext({
   isDark: false,
   setIsDark: () => {},
 });
-
-const STORAGE_KEY_THEME = "themeMode";
 
 function ThemeContextProvider({ children }) {
   const applyTheme = useCallback((mode) => {
@@ -16,7 +15,7 @@ function ThemeContextProvider({ children }) {
 
   // State => Context
   const { value: isDark, setValue: setIsDark } = useStorage(
-    STORAGE_KEY_THEME,
+    STORAGE_KEY_THEME_MODE,
     false,
     {
       onSave: applyTheme,
@@ -24,12 +23,10 @@ function ThemeContextProvider({ children }) {
     }
   );
 
-  const toggleTheme = () => {
-    setIsDark((prev) => !prev);
-  };
+  const toggleTheme = () => setIsDark((prev) => !prev);
 
   return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
+    <ThemeContext.Provider value={{ isDark, toggleTheme, setIsDark }}>
       {children}
     </ThemeContext.Provider>
   );

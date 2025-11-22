@@ -2,7 +2,10 @@
 export const STORAGE_KEY_ACCOUNTS = "app_accounts";
 export const STORAGE_KEY_USER_ID = "app_user_id";
 export const STORAGE_KEY_TOKEN = "app_token";
-export const STORAGE_KEY_WELCOME = "welcomeMessage";
+export const STORAGE_KEY_THEME_MODE = "theme_mode";
+export const STORAGE_KEY_COLLAPSE_NAV = "collapse_nav";
+export const STORAGE_KEY_WELCOME = "welcome_message";
+export const STORAGE_KEY_ACCENT_COLOR = "accent_color";
 
 // Routing Path
 export const REGISTER_PATH = "/register";

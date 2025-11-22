@@ -7,9 +7,9 @@ import {
   LoginPage,
   RegisterPage,
   BlogsPage,
+  ProfilePage,
 } from "@pages";
 import { MainLayout } from "@layouts";
-import {} from "./pages";
 
 const router = createBrowserRouter([
   // Public Routes (No login required)
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
           },
           {
             path: "profile",
-            element: <div>Profile Page</div>,
+            element: <ProfilePage />,
             handle: { breadcrumb: "Profile" },
           },
           {

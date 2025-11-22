@@ -5,3 +5,4 @@ export * from "./DashboardPage";
 export * from "./AnalyticsPage.jsx";
 export * from "./blog/BlogsPage";
 export * from "./blog/BlogPost";
+export * from "./ProfilePage";
