@@ -1,29 +1,53 @@
 import styles from "@styles/ProfilePage.module.css";
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { useUser } from "@hooks";
 import { getUserData } from "@utils";
 import { ThemeContext } from "@context";
-import { STORAGE_KEY_ACCENT_COLOR } from "@constants";
+import {
+  STORAGE_KEY_ACCENT_COLOR,
+  STORAGE_KEY_ACCOUNTS,
+  STORAGE_KEY_USER_ID,
+  STORAGE_KEY_TOKEN,
+} from "@constants";
 import Swal from "sweetalert2";
 
 function ProfilePage() {
   const savedAccent =
     localStorage.getItem(STORAGE_KEY_ACCENT_COLOR) || "#6366f1";
-  const user = getUserData();
+  const { user, refreshUser } = useUser();
   const { isDark, setIsDark } = useContext(ThemeContext);
   const [accentColor, setAccentColor] = useState(savedAccent);
   const [formData, setFormData] = useState(user);
+  const navigate = useNavigate();
 
   // Committed Changes
   const [appearanceData, setAppearanceData] = useState({
-    isDark: isDark,
+    isDark,
     accentColor: savedAccent,
   });
 
   // Temporary Changes
   const [draftAppearance, setDraftAppearance] = useState({
-    isDark: isDark,
+    isDark,
     accentColor: savedAccent,
   });
+
+  // Synchronize with global ThemeContext changes
+  useEffect(() => {
+    setDraftAppearance((prev) => ({
+      ...prev,
+      isDark: isDark,
+    }));
+  }, [isDark]);
+
+  useEffect(() => {
+    setAppearanceData((prev) => ({
+      ...prev,
+      isDark: isDark,
+    }));
+  }, [isDark]);
 
   const colors = ["#6366f1", "#d946ef", "#f43f5e", "#14b8a6", "#f97316"];
 
@@ -48,15 +72,46 @@ function ProfilePage() {
   };
 
   const handleSave = () => {
-    // Save profile changes
-    console.log("Saving:", formData);
+    // Validations
+    const nameParts = formData.fullName.trim().split(/\s+/);
+    if (nameParts.length < 2) {
+      toast.error("Full name must contain at least two words!");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast.error("Please enter a valid email address!");
+      return;
+    }
+
+    // Update User Data
+    const users = JSON.parse(localStorage.getItem(STORAGE_KEY_ACCOUNTS)) || [];
+    const updatedUsers = users.map((u) =>
+      u.email === user.email ? { ...u, ...formData } : u
+    );
+
+    localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(updatedUsers));
+
+    refreshUser();
+
+    setFormData(getUserData());
+
+    toast.success("Profile updated successfully!");
+
+    setTimeout(() => {
+      toast.warning(
+        "Data will reflect after refresh in other pages, cuz i'm too lazy to handle it."
+      );
+    }, 1500);
   };
 
   const handleAppearanceSave = () => {
-    // Commit appearance changes on save click
     setAppearanceData(draftAppearance);
     setIsDark(draftAppearance.isDark);
     setAccentColor(draftAppearance.accentColor);
+
+    toast.success("Changes saved successfully!");
   };
 
   useEffect(() => {
@@ -98,7 +153,23 @@ function ProfilePage() {
       })
       .then((result) => {
         if (result && result.isConfirmed) {
-          console.log(user.id);
+          // Get current user id from localstorage and loop on users array to delete the user
+          const users =
+            JSON.parse(localStorage.getItem(STORAGE_KEY_ACCOUNTS)) || [];
+          const currentUserEmail = user.email;
+
+          const updatedUsers = users.filter(
+            (u) => u.email !== currentUserEmail
+          );
+
+          localStorage.setItem(
+            STORAGE_KEY_ACCOUNTS,
+            JSON.stringify(updatedUsers)
+          );
+          localStorage.removeItem(STORAGE_KEY_USER_ID);
+          localStorage.removeItem(STORAGE_KEY_TOKEN);
+
+          navigate("/");
         }
       });
   };

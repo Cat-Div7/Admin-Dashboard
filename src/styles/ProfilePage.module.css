@@ -28,7 +28,7 @@
 }
 
 .title {
-  color: #0f172a;
+  color: var(--text-primary);
   font-size: 2.25rem;
   font-weight: 900;
   line-height: 1.2;
@@ -36,20 +36,10 @@
 }
 
 .subtitle {
-  color: #64748b;
+  color: var(--text-secondary);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-}
-
-[theme-mode="dark"] {
-  .title {
-    color: #ffffff;
-  }
-
-  .subtitle {
-    color: #a19db9;
-  }
 }
 
 /* Section */
@@ -59,8 +49,8 @@
 
 /* Card */
 .card {
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(203, 213, 225, 0.8);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 0.75rem;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
@@ -69,13 +59,12 @@
 [theme-mode="dark"] {
   .card {
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
   }
 }
 
 .cardHeader {
   padding: 1rem;
-  border-bottom: 1px solid rgba(203, 213, 225, 0.8);
+  border-bottom: 1px solid var(--border-color);
 }
 
 @media (min-width: 640px) {
@@ -102,7 +91,6 @@
 }
 
 [theme-mode="dark"] {
-  .cardHeader,
   .cardHeaderDanger {
     border-bottom-color: rgba(255, 255, 255, 0.1);
   }
@@ -113,17 +101,11 @@
 }
 
 .cardTitle {
-  color: #0f172a;
+  color: var(--text-primary);
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.015em;
-}
-
-[theme-mode="dark"] {
-  .cardTitle {
-    color: #ffffff;
-  }
 }
 
 .cardContent {
@@ -141,7 +123,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem 1.5rem;
-  border-top: 1px solid rgba(203, 213, 225, 0.8);
+  border-top: 1px solid var(--border-color);
 }
 
 @media (min-width: 640px) {
@@ -153,12 +135,6 @@
 @media (min-width: 768px) {
   .cardFields {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-[theme-mode="dark"] {
-  .cardFields {
-    border-top-color: rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -227,7 +203,7 @@
 }
 
 .userName {
-  color: #0f172a;
+  color: var(--text-primary);
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.25;
@@ -241,7 +217,7 @@
 }
 
 .userEmail {
-  color: #64748b;
+  color: var(--text-secondary);
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
@@ -250,16 +226,6 @@
 @media (min-width: 640px) {
   .userEmail {
     font-size: 1rem;
-  }
-}
-
-[theme-mode="dark"] {
-  .userName {
-    color: #ffffff;
-  }
-
-  .userEmail {
-    color: #a19db9;
   }
 }
 
@@ -403,12 +369,13 @@
 .textarea {
   width: 100%;
   border-radius: 0.5rem;
-  background-color: #f1f5f9;
-  border: 1px solid #cbd5e1;
+  background-color: #ffffff; 
+  border: 1px solid #e5e7eb; 
   color: #0f172a;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
+  transition: 0.2s ease;
 }
 
 .input:focus,
@@ -418,13 +385,11 @@
   border-color: var(--primary-hover);
 }
 
-[theme-mode="dark"] {
-  .input,
-  .textarea {
-    background-color: #2b2839;
-    border-color: transparent;
-    color: #ffffff;
-  }
+[theme-mode="dark"] .input,
+[theme-mode="dark"] .textarea {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
 }
 
 .input {
@@ -535,7 +500,7 @@
 
 .themeButton.active {
   background-color: #ffffff;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 [theme-mode="dark"] {
@@ -545,13 +510,13 @@
 
   .themeButton.active {
     background-color: var(--primary);
-    color: #ffffff;
   }
 }
 
 /* Color Picker */
 .colorPicker {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
 }
@@ -562,11 +527,12 @@
   border-radius: 9999px;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: var(--main-trans);
 }
 
-.colorButton:hover {
-  transform: scale(1.1);
+.colorButton:hover,
+.selectedColor {
+  scale: 1.1;
 }
 
 .selectedColor {
@@ -576,7 +542,7 @@
 
 [theme-mode="dark"] {
   .selectedColor {
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1),
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3),
       inset 0 0 0 2px rgba(255, 255, 255, 0.3);
   }
 }

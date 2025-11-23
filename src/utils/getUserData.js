@@ -18,6 +18,7 @@ function getUserData() {
     firstTwoNames: nameParts.slice(0, 2).join(" "),
     avatarLetter: currentUser.firstName?.charAt(0) ?? fullName.charAt(0),
     raw: currentUser,
+    bio: currentUser.bio || "",
   };
 }
 
