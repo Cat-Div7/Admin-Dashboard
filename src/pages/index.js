@@ -6,3 +6,4 @@ export * from "./AnalyticsPage.jsx";
 export * from "./blog/BlogsPage";
 export * from "./blog/BlogPost";
 export * from "./ProfilePage";
+export * from "./UsersPage";

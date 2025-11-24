@@ -82,7 +82,7 @@ function DashboardPage() {
         <h2 className={styles.sectionHeader}>Recent Activity</h2>
 
         {/* Activity Table */}
-        <UsersTable showPagination={false} />
+        <UsersTable showPagination={false} path="users/" />
       </main>
 
       <Toaster

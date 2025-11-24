@@ -4,9 +4,13 @@ import { activityData } from "@constants";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-function UsersTable({ showPagination = false, actionsColumn = false }) {
+function UsersTable({
+  showPagination = false,
+  actionsColumn = false,
+  path = "",
+}) {
   const navigate = useNavigate();
-  const handleNavigate = (id) => () => navigate(`users/${id}`);
+  const handleNavigate = (id) => () => navigate(`${path}${id}`);
 
   // Table Panigation State
   const [pagination, setPagination] = useState({
@@ -42,7 +46,7 @@ function UsersTable({ showPagination = false, actionsColumn = false }) {
                 <th>Status</th>
                 <th>Date</th>
                 <th>Link</th>
-                {actionsColumn && <th></th>}
+                {actionsColumn && <th>Actions</th>}
               </tr>
             </thead>
 
@@ -77,7 +81,7 @@ function UsersTable({ showPagination = false, actionsColumn = false }) {
 
                   <td>
                     <Link
-                      to={`users/${activity.id}`}
+                      to={`${path}${activity.id}`}
                       onClick={(e) => e.stopPropagation()}
                       className={styles.detailsLink}
                     >
@@ -85,7 +89,14 @@ function UsersTable({ showPagination = false, actionsColumn = false }) {
                     </Link>
                   </td>
 
-                  {actionsColumn && <td>...</td>}
+                  {actionsColumn && (
+                    <td
+                      onClick={(e) => e.stopPropagation()}
+                      style={{  textAlign: "center" }}
+                    >
+                      <span>...</span>
+                    </td>
+                  )}
                 </tr>
               ))}
             </tbody>

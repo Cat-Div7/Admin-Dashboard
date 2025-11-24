@@ -2,11 +2,10 @@ import styles from "@styles/ProfilePage.module.css";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { useUser } from "@hooks";
+import { useUser, useAccentColor } from "@hooks";
 import { getUserData } from "@utils";
 import { ThemeContext } from "@context";
 import {
-  STORAGE_KEY_ACCENT_COLOR,
   STORAGE_KEY_ACCOUNTS,
   STORAGE_KEY_USER_ID,
   STORAGE_KEY_TOKEN,
@@ -14,24 +13,23 @@ import {
 import Swal from "sweetalert2";
 
 function ProfilePage() {
-  const savedAccent =
-    localStorage.getItem(STORAGE_KEY_ACCENT_COLOR) || "#6366f1";
   const { user, refreshUser } = useUser();
   const { isDark, setIsDark } = useContext(ThemeContext);
-  const [accentColor, setAccentColor] = useState(savedAccent);
+  const { accentColor, setAccentColor } = useAccentColor();
+
   const [formData, setFormData] = useState(user);
   const navigate = useNavigate();
 
   // Committed Changes
   const [appearanceData, setAppearanceData] = useState({
     isDark,
-    accentColor: savedAccent,
+    accentColor,
   });
 
   // Temporary Changes
   const [draftAppearance, setDraftAppearance] = useState({
     isDark,
-    accentColor: savedAccent,
+    accentColor,
   });
 
   // Synchronize with global ThemeContext changes
@@ -101,7 +99,7 @@ function ProfilePage() {
 
     setTimeout(() => {
       toast.warning(
-        "Data will reflect after refresh in other pages, cuz i'm too lazy to handle it."
+        "Data Sometimes will reflect after refresh in other pages, cuz i'm too lazy to handle it."
       );
     }, 1500);
   };
@@ -113,16 +111,6 @@ function ProfilePage() {
 
     toast.success("Changes saved successfully!");
   };
-
-  useEffect(() => {
-    document.documentElement.style.setProperty("--primary", accentColor);
-    document.documentElement.style.setProperty(
-      "--primary-hover",
-      accentColor + "cc"
-    );
-
-    localStorage.setItem(STORAGE_KEY_ACCENT_COLOR, accentColor);
-  }, [accentColor]);
 
   const handleDelete = () => {
     Swal.fire({
@@ -153,7 +141,6 @@ function ProfilePage() {
       })
       .then((result) => {
         if (result && result.isConfirmed) {
-          // Get current user id from localstorage and loop on users array to delete the user
           const users =
             JSON.parse(localStorage.getItem(STORAGE_KEY_ACCOUNTS)) || [];
           const currentUserEmail = user.email;
@@ -191,171 +178,176 @@ function ProfilePage() {
         </div>
       </header>
 
-      {/* Profile Settings Card */}
-      <section className={styles.section}>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <h2 className={styles.cardTitle}>Profile Settings</h2>
-          </div>
-          <div className={styles.cardContent}>
-            <div className={styles.profileHeader}>
-              <div className={styles.profileInfo}>
-                <div className={styles.avatar} />
-                <div className={styles.profileText}>
-                  <p className={styles.userName}>{user.fullName}</p>
-                  <p className={styles.userEmail}>{user.email}</p>
+      <div className={styles.gridWrapper}>
+        {/* Profile Settings Card */}
+        <section className={`${styles.section} ${styles.profileSection}`}>
+          <div className={styles.card}>
+            <div className={styles.cardHeader}>
+              <h2 className={styles.cardTitle}>Profile Settings</h2>
+            </div>
+            <div className={styles.cardContent}>
+              <div className={styles.profileHeader}>
+                <div className={styles.profileInfo}>
+                  <div className={styles.avatar} />
+                  <div className={styles.profileText}>
+                    <p className={styles.userName}>{user.fullName}</p>
+                    <p className={styles.userEmail}>{user.email}</p>
+                  </div>
                 </div>
+                {hasFormChanges && (
+                  <div className={styles.buttonGroup}>
+                    <button
+                      className={styles.buttonSecondary}
+                      onClick={handleFormDiscard}
+                    >
+                      <span>Discard</span>
+                    </button>
+                    <button
+                      className={styles.buttonPrimary}
+                      onClick={handleSave}
+                    >
+                      <span>Save Changes</span>
+                    </button>
+                  </div>
+                )}
               </div>
-              {hasFormChanges && (
+            </div>
+            <div className={styles.cardFields}>
+              <div>
+                <label className={styles.fieldLabel} htmlFor="fullName">
+                  Full Name
+                </label>
+                <input
+                  className={styles.input}
+                  id="fullName"
+                  type="text"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div>
+                <label className={styles.fieldLabel} htmlFor="email">
+                  Email Address
+                </label>
+                <input
+                  className={styles.input}
+                  id="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className={styles.fullWidth}>
+                <label className={styles.fieldLabel} htmlFor="bio">
+                  Bio
+                </label>
+                <textarea
+                  className={styles.textarea}
+                  id="bio"
+                  placeholder="Tell us a little about yourself..."
+                  rows="3"
+                  value={formData.bio}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Theme & Display Card */}
+        <section className={`${styles.section} ${styles.themeSection}`}>
+          <div className={styles.card}>
+            <div
+              className={`${styles.cardHeader} ${styles.cardHeaderWithButton}`}
+            >
+              <h2 className={styles.cardTitle}>Theme & Display</h2>
+              {hasApperanceChanges && (
                 <div className={styles.buttonGroup}>
                   <button
                     className={styles.buttonSecondary}
-                    onClick={handleFormDiscard}
+                    onClick={handleAppearanceDiscard}
                   >
                     <span>Discard</span>
                   </button>
-                  <button className={styles.buttonPrimary} onClick={handleSave}>
-                    <span>Save Changes</span>
+                  <button
+                    className={styles.buttonPrimary}
+                    onClick={handleAppearanceSave}
+                  >
+                    <span>Save</span>
                   </button>
                 </div>
               )}
             </div>
-          </div>
-          <div className={styles.cardFields}>
-            <div>
-              <label className={styles.fieldLabel} htmlFor="fullName">
-                Full Name
-              </label>
-              <input
-                className={styles.input}
-                id="fullName"
-                type="text"
-                value={formData.fullName}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div>
-              <label className={styles.fieldLabel} htmlFor="email">
-                Email Address
-              </label>
-              <input
-                className={styles.input}
-                id="email"
-                type="email"
-                value={formData.email}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className={styles.fullWidth}>
-              <label className={styles.fieldLabel} htmlFor="bio">
-                Bio
-              </label>
-              <textarea
-                className={styles.textarea}
-                id="bio"
-                placeholder="Tell us a little about yourself..."
-                rows="3"
-                value={formData.bio}
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Theme & Display Card */}
-      <section className={styles.section}>
-        <div className={styles.card}>
-          <div
-            className={`${styles.cardHeader} ${styles.cardHeaderWithButton}`}
-          >
-            <h2 className={styles.cardTitle}>Theme & Display</h2>
-            {hasApperanceChanges && (
-              <div className={styles.buttonGroup}>
-                <button
-                  className={styles.buttonSecondary}
-                  onClick={handleAppearanceDiscard}
-                >
-                  <span>Discard</span>
-                </button>
-                <button
-                  className={styles.buttonPrimary}
-                  onClick={handleAppearanceSave}
-                >
-                  <span>Save</span>
-                </button>
-              </div>
-            )}
-          </div>
-          <div className={styles.cardDivide}>
-            <div className={styles.settingRow}>
-              <div>
-                <h3 className={styles.settingTitle}>Appearance</h3>
-                <p className={styles.settingDescription}>
-                  Customize the look and feel of the dashboard.
-                </p>
-              </div>
-              <div className={styles.themeToggle}>
-                <button
-                  className={`${styles.themeButton} ${
-                    !draftAppearance.isDark ? styles.active : ""
-                  }`}
-                  onClick={() =>
-                    setDraftAppearance((prev) => ({
-                      ...prev,
-                      isDark: false,
-                    }))
-                  }
-                >
-                  <span>L</span>
-                  Light
-                </button>
-                <button
-                  className={`${styles.themeButton} ${
-                    draftAppearance.isDark ? styles.active : ""
-                  }`}
-                  onClick={() =>
-                    setDraftAppearance((prev) => ({
-                      ...prev,
-                      isDark: true,
-                    }))
-                  }
-                >
-                  <span>D</span>
-                  Dark
-                </button>
-              </div>
-            </div>
-            <div className={styles.settingRow}>
-              <div>
-                <h3 className={styles.settingTitle}>Accent Color</h3>
-                <p className={styles.settingDescription}>
-                  Choose a color for interactive elements.
-                </p>
-              </div>
-              <div className={styles.colorPicker}>
-                {colors.map((color) => (
+            <div className={styles.cardDivide}>
+              <div className={styles.settingRow}>
+                <div>
+                  <h3 className={styles.settingTitle}>Appearance</h3>
+                  <p className={styles.settingDescription}>
+                    Customize the look and feel of the dashboard.
+                  </p>
+                </div>
+                <div className={styles.themeToggle}>
                   <button
-                    key={color}
-                    className={`${styles.colorButton} ${
-                      draftAppearance.accentColor === color
-                        ? styles.selectedColor
-                        : ""
+                    className={`${styles.themeButton} ${
+                      !draftAppearance.isDark ? styles.active : ""
                     }`}
-                    style={{ backgroundColor: color }}
                     onClick={() =>
                       setDraftAppearance((prev) => ({
                         ...prev,
-                        accentColor: color,
+                        isDark: false,
                       }))
                     }
-                  />
-                ))}
+                  >
+                    <span>L</span>
+                    Light
+                  </button>
+                  <button
+                    className={`${styles.themeButton} ${
+                      draftAppearance.isDark ? styles.active : ""
+                    }`}
+                    onClick={() =>
+                      setDraftAppearance((prev) => ({
+                        ...prev,
+                        isDark: true,
+                      }))
+                    }
+                  >
+                    <span>D</span>
+                    Dark
+                  </button>
+                </div>
+              </div>
+              <div className={styles.settingRow}>
+                <div>
+                  <h3 className={styles.settingTitle}>Accent Color</h3>
+                  <p className={styles.settingDescription}>
+                    Choose a color for interactive elements.
+                  </p>
+                </div>
+                <div className={styles.colorPicker}>
+                  {colors.map((color) => (
+                    <button
+                      key={color}
+                      className={`${styles.colorButton} ${
+                        draftAppearance.accentColor === color
+                          ? styles.selectedColor
+                          : ""
+                      }`}
+                      style={{ backgroundColor: color }}
+                      onClick={() =>
+                        setDraftAppearance((prev) => ({
+                          ...prev,
+                          accentColor: color,
+                        }))
+                      }
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* Danger Zone Card */}
       <section className={styles.section}>

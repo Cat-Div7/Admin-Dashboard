@@ -1,7 +1,7 @@
 .container {
   width: 100%;
-  max-width: 56rem;
-  margin: 0 auto;
+  /* max-width: 56rem; */
+  /* margin: 0 auto; */
 }
 
 /* Header Section */
@@ -40,6 +40,35 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
+}
+
+.gridWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (max-width: 1280px) {
+  .gridWrapper {
+    gap: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .gridWrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .profileSection {
+    grid-column: span 2 / span 2;
+  }
+
+  .themeSection {
+    grid-column: span 1 / span 1;
+  }
 }
 
 /* Section */
@@ -369,8 +398,8 @@
 .textarea {
   width: 100%;
   border-radius: 0.5rem;
-  background-color: #ffffff; 
-  border: 1px solid #e5e7eb; 
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
   color: #0f172a;
   font-size: 1rem;
   font-weight: 400;

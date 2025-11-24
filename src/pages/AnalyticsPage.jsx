@@ -204,13 +204,13 @@ function PieChart() {
             cy="18"
             fill="none"
             r="15.9155"
-            strokeDasharray="55, 45"
+            strokeDasharray="58, 45"
             strokeDashoffset="-20"
             strokeWidth="3.8"
           ></circle>
         </svg>
         <div className={styles.pieLabel}>
-          <span className={styles.pieValue}>75%</span>
+          <span className={styles.pieValue}>45%</span>
           <span className={styles.pieText}>EGP</span>
         </div>
       </div>

@@ -4,11 +4,13 @@ import { Outlet } from "react-router-dom";
 import { CollapseContextProvider, ThemeContextProvider } from "@context";
 import styles from "@styles/MainLayout.module.css";
 import { sidebarIcons } from "@utils";
-import { FontIcon } from "@root/components";
+import { FontIcon } from "@components";
+import { useAccentColor } from "@hooks";
 
 function MainLayout() {
   const [smallScreen, setSmallScreen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { accentColor, shouldInitializeAccent, saveAccent } = useAccentColor();
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,6 +28,10 @@ function MainLayout() {
   }, [setSmallScreen]);
 
   const toggleNav = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    shouldInitializeAccent && saveAccent(accentColor);
+  }, [shouldInitializeAccent, accentColor, saveAccent]);
 
   return (
     <ThemeContextProvider>

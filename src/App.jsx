@@ -2,12 +2,13 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { PublicRoute, ProtectedRoute, ValidateRoute } from "@utils";
 import {
   LandingPage,
-  DashboardPage,
-  AnalyticsPage,
   LoginPage,
   RegisterPage,
-  BlogsPage,
+  DashboardPage,
+  AnalyticsPage,
   ProfilePage,
+  UsersPage,
+  BlogsPage,
 } from "@pages";
 import { MainLayout } from "@layouts";
 
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
             element: <Outlet />,
             handle: { breadcrumb: "Users" },
             children: [
-              { index: true, element: <div>Users Page</div> },
+              { index: true, element: <UsersPage /> },
               {
                 path: ":id",
                 element: <ValidateRoute />,
