@@ -1,0 +1,72 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: var(--card-bg);
+  border-radius: 0.75rem; 
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); 
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  min-width: 5rem; 
+  transition: var(--smooth-trans);
+}
+
+/* Glassmorphism effect */
+.modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-bg);
+  opacity: 0.2;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Menu List */
+.menuList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 1rem; 
+  text-align: left;
+  font-size: 0.875rem; 
+  color: var(--text-secondary);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: var(--main-trans);
+}
+
+.menuItem:hover {
+  background-color: rgba(100, 116, 139, 0.3);
+}
+
+.menuItemTop {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.menuItemDanger {
+  color: var(--danger-color);
+}
+
+.menuItemDanger:hover {
+  background-color: rgba(255, 77, 77, 0.1);
+}
+
+.divider {
+  border-top: 1px solid rgba(51, 65, 85, 0.5); 
+}

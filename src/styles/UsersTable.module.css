@@ -103,6 +103,12 @@
   border-radius: 9999px;
 }
 
+.noData {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
 .statusGreen {
   background-color: rgb(220, 252, 231);
   color: rgb(22, 101, 52);
@@ -171,4 +177,33 @@
 
 .detailsLink:hover {
   color: var(--primary-hover);
+}
+
+.actionDots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--primary);
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: var(--main-trans);
+  box-shadow: 0 2px 8px var(--primary-light);
+}
+
+.actionDots:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--primary-light);
+  background: var(--primary-hover);
+}
+
+.actionDots:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px var(--primary-light);
 }

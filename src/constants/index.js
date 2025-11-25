@@ -6,6 +6,7 @@ export const STORAGE_KEY_THEME_MODE = "theme_mode";
 export const STORAGE_KEY_COLLAPSE_NAV = "collapse_nav";
 export const STORAGE_KEY_WELCOME = "welcome_message";
 export const STORAGE_KEY_ACCENT_COLOR = "accent_color";
+export const STORAGE_KEY_USERS = "app_users";
 
 // Routing Path
 export const REGISTER_PATH = "/register";
@@ -94,7 +95,8 @@ export const testimonialsData = [
   },
 ];
 
-// Dashboard Page
+// Users data
+// Merged Dashboard Data - كل يوزر معاه كل الـ activities بتاعته
 import girlAvatar from "../assets/girlAvatar.png";
 import boyAvatar from "../assets/boyAvatar.png";
 import manAvatar from "../assets/manAvatar.png";
@@ -108,7 +110,16 @@ export const usersData = [
     email: "ahmedmohamed1@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Logged In",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-16 10:30 AM",
+      },
+    ],
   },
   {
     id: 2,
@@ -118,7 +129,16 @@ export const usersData = [
     email: "fatimaahmed2@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Updated Profile",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-11-16 09:15 AM",
+      },
+    ],
   },
   {
     id: 3,
@@ -128,7 +148,16 @@ export const usersData = [
     email: "mohamedhassan3@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Password Reset",
+        status: "Pending",
+        statusColor: "Yellow",
+        date: "2025-11-15 03:45 PM",
+      },
+    ],
   },
   {
     id: 4,
@@ -138,7 +167,16 @@ export const usersData = [
     email: "aishali4@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Downloaded Report",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-15 02:20 PM",
+      },
+    ],
   },
   {
     id: 5,
@@ -148,7 +186,16 @@ export const usersData = [
     email: "ahmedkhan5@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Uploaded Document",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-11-14 11:00 AM",
+      },
+    ],
   },
   {
     id: 6,
@@ -158,7 +205,16 @@ export const usersData = [
     email: "laylaibrahim6@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Changed Settings",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-14 08:45 AM",
+      },
+    ],
   },
   {
     id: 7,
@@ -168,7 +224,16 @@ export const usersData = [
     email: "hassanmohammed7@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: manAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Shared File",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-11-13 04:30 PM",
+      },
+    ],
   },
   {
     id: 8,
@@ -178,7 +243,16 @@ export const usersData = [
     email: "noorrahman8@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Deleted Account",
+        status: "Pending",
+        statusColor: "Yellow",
+        date: "2025-11-13 01:15 PM",
+      },
+    ],
   },
   {
     id: 9,
@@ -188,7 +262,16 @@ export const usersData = [
     email: "alimalik9@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Verified Email",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-12 10:00 AM",
+      },
+    ],
   },
   {
     id: 10,
@@ -198,7 +281,16 @@ export const usersData = [
     email: "sarahussain10@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Updated Billing",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-11-12 09:30 AM",
+      },
+    ],
   },
   {
     id: 11,
@@ -208,7 +300,16 @@ export const usersData = [
     email: "karimfarrah11@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Created Project",
+        status: "Failed",
+        statusColor: "Red",
+        date: "2025-11-11 05:45 PM",
+      },
+    ],
   },
   {
     id: 12,
@@ -218,7 +319,16 @@ export const usersData = [
     email: "leilajamil12@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Invited User",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-11 03:20 PM",
+      },
+    ],
   },
   {
     id: 13,
@@ -228,7 +338,16 @@ export const usersData = [
     email: "ibrahimmansour13@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: manAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Exported Data",
+        status: "In Progress",
+        statusColor: "Purple",
+        date: "2025-11-10 02:00 PM",
+      },
+    ],
   },
   {
     id: 14,
@@ -238,7 +357,16 @@ export const usersData = [
     email: "mariam nassar14@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Updated Photo",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-11-10 11:15 AM",
+      },
+    ],
   },
   {
     id: 15,
@@ -248,7 +376,16 @@ export const usersData = [
     email: "khalidri15@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Logged In",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-09 10:45 AM",
+      },
+    ],
   },
   {
     id: 16,
@@ -258,7 +395,16 @@ export const usersData = [
     email: "hanasaad16@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Updated Profile",
+        status: "Pending",
+        statusColor: "Yellow",
+        date: "2025-11-09 08:30 AM",
+      },
+    ],
   },
   {
     id: 17,
@@ -268,7 +414,16 @@ export const usersData = [
     email: "jamalsaleh17@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: manAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Password Reset",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-11-08 04:15 PM",
+      },
+    ],
   },
   {
     id: 18,
@@ -278,7 +433,16 @@ export const usersData = [
     email: "dinasalam18@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Downloaded Report",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-08 02:50 PM",
+      },
+    ],
   },
   {
     id: 19,
@@ -288,7 +452,16 @@ export const usersData = [
     email: "samirsamad19@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Uploaded Document",
+        status: "Failed",
+        statusColor: "Red",
+        date: "2025-11-07 01:00 PM",
+      },
+    ],
   },
   {
     id: 20,
@@ -298,7 +471,16 @@ export const usersData = [
     email: "reemsami20@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Changed Settings",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-07 10:30 AM",
+      },
+    ],
   },
   {
     id: 21,
@@ -308,7 +490,16 @@ export const usersData = [
     email: "tariqsamir21@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Shared File",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-11-06 09:45 AM",
+      },
+    ],
   },
   {
     id: 22,
@@ -318,7 +509,16 @@ export const usersData = [
     email: "yasmintamer22@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Deleted Account",
+        status: "In Progress",
+        statusColor: "Purple",
+        date: "2025-11-06 03:20 PM",
+      },
+    ],
   },
   {
     id: 23,
@@ -328,7 +528,16 @@ export const usersData = [
     email: "adeltariq23@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: manAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Verified Email",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-05 11:00 AM",
+      },
+    ],
   },
   {
     id: 24,
@@ -338,7 +547,16 @@ export const usersData = [
     email: "zainabyasir24@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Updated Billing",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-11-05 08:15 AM",
+      },
+    ],
   },
   {
     id: 25,
@@ -348,7 +566,16 @@ export const usersData = [
     email: "bialyoussef25@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Created Project",
+        status: "Pending",
+        statusColor: "Yellow",
+        date: "2025-11-04 05:30 PM",
+      },
+    ],
   },
   {
     id: 26,
@@ -358,7 +585,16 @@ export const usersData = [
     email: "salmazahra26@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Invited User",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-04 02:45 PM",
+      },
+    ],
   },
   {
     id: 27,
@@ -368,7 +604,16 @@ export const usersData = [
     email: "rashidzaki27@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: manAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Exported Data",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-11-03 01:30 PM",
+      },
+    ],
   },
   {
     id: 28,
@@ -378,7 +623,16 @@ export const usersData = [
     email: "amirazayed28@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Updated Photo",
+        status: "Failed",
+        statusColor: "Red",
+        date: "2025-11-03 10:00 AM",
+      },
+    ],
   },
   {
     id: 29,
@@ -388,7 +642,16 @@ export const usersData = [
     email: "youssefzein29@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Logged In",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-02 09:20 AM",
+      },
+    ],
   },
   {
     id: 30,
@@ -398,7 +661,16 @@ export const usersData = [
     email: "nadiaziad30@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Updated Profile",
+        status: "In Progress",
+        statusColor: "Purple",
+        date: "2025-11-02 07:45 AM",
+      },
+    ],
   },
   {
     id: 31,
@@ -408,7 +680,16 @@ export const usersData = [
     email: "faisalnasser31@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Password Reset",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-11-01 04:00 PM",
+      },
+    ],
   },
   {
     id: 32,
@@ -418,7 +699,16 @@ export const usersData = [
     email: "hudanabil32@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Downloaded Report",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-11-01 02:30 PM",
+      },
+    ],
   },
   {
     id: 33,
@@ -428,7 +718,16 @@ export const usersData = [
     email: "emadnawaf33@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: manAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Uploaded Document",
+        status: "Pending",
+        statusColor: "Yellow",
+        date: "2025-10-31 01:15 PM",
+      },
+    ],
   },
   {
     id: 34,
@@ -438,7 +737,16 @@ export const usersData = [
     email: "imamnizar34@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Changed Settings",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-10-31 10:45 AM",
+      },
+    ],
   },
   {
     id: 35,
@@ -448,7 +756,16 @@ export const usersData = [
     email: "hazemsama35@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Shared File",
+        status: "Failed",
+        statusColor: "Red",
+        date: "2025-10-30 09:30 AM",
+      },
+    ],
   },
   {
     id: 36,
@@ -458,7 +775,16 @@ export const usersData = [
     email: "lilyowais36@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Deleted Account",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-10-30 08:00 AM",
+      },
+    ],
   },
   {
     id: 37,
@@ -468,7 +794,16 @@ export const usersData = [
     email: "nadirqadir37@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: manAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Verified Email",
+        status: "In Progress",
+        statusColor: "Purple",
+        date: "2025-10-29 03:50 PM",
+      },
+    ],
   },
   {
     id: 38,
@@ -478,7 +813,16 @@ export const usersData = [
     email: "mayaqasim38@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Updated Billing",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-10-29 02:20 PM",
+      },
+    ],
   },
   {
     id: 39,
@@ -488,7 +832,16 @@ export const usersData = [
     email: "rafiqradi39@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: boyAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
+    activities: [
+      {
+        activity: "Created Project",
+        status: "Successful",
+        statusColor: "Green",
+        date: "2025-10-28 11:30 AM",
+      },
+    ],
   },
   {
     id: 40,
@@ -498,410 +851,16 @@ export const usersData = [
     email: "sophirahim40@example.com",
     password:
       "3ea87a56da3844b420ec2925ae922bc731ec16a4fc44dcbeafdad49b0e61d39c",
+    avatar: girlAvatar,
     createdAt: "2025-11-16T14:48:10.513Z",
-  },
-];
-
-export const activityData = [
-  {
-    id: 1,
-    name: "Ahmed Mohamed",
-    email: "ahmedmohamed1@example.com",
-    avatar: boyAvatar,
-    activity: "Logged In",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-16 10:30 AM",
-  },
-  {
-    id: 2,
-    name: "Fatima Ahmed",
-    email: "fatimaahmed2@example.com",
-    avatar: girlAvatar,
-    activity: "Updated Profile",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-11-16 09:15 AM",
-  },
-  {
-    id: 3,
-    name: "Mohamed Hassan",
-    email: "mohamedhassan3@example.com",
-    avatar: boyAvatar,
-    activity: "Password Reset",
-    status: "Pending",
-    statusColor: "Yellow",
-    date: "2025-11-15 03:45 PM",
-  },
-  {
-    id: 4,
-    name: "Aisha Ali",
-    email: "aishali4@example.com",
-    avatar: girlAvatar,
-    activity: "Downloaded Report",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-15 02:20 PM",
-  },
-  {
-    id: 5,
-    name: "Ahmed Khan",
-    email: "ahmedkhan5@example.com",
-    avatar: boyAvatar,
-    activity: "Uploaded Document",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-11-14 11:00 AM",
-  },
-  {
-    id: 6,
-    name: "Layla Ibrahim",
-    email: "laylaibrahim6@example.com",
-    avatar: girlAvatar,
-    activity: "Changed Settings",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-14 08:45 AM",
-  },
-  {
-    id: 7,
-    name: "Hassan Mohammed",
-    email: "hassanmohammed7@example.com",
-    avatar: manAvatar,
-    activity: "Shared File",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-11-13 04:30 PM",
-  },
-  {
-    id: 8,
-    name: "Noor Rahman",
-    email: "noorrahman8@example.com",
-    avatar: girlAvatar,
-    activity: "Deleted Account",
-    status: "Pending",
-    statusColor: "Yellow",
-    date: "2025-11-13 01:15 PM",
-  },
-  {
-    id: 9,
-    name: "Ali Malik",
-    email: "alimalik9@example.com",
-    avatar: boyAvatar,
-    activity: "Verified Email",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-12 10:00 AM",
-  },
-  {
-    id: 10,
-    name: "Sara Hussain",
-    email: "sarahussain10@example.com",
-    avatar: girlAvatar,
-    activity: "Updated Billing",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-11-12 09:30 AM",
-  },
-  {
-    id: 11,
-    name: "Karim Farrah",
-    email: "karimfarrah11@example.com",
-    avatar: boyAvatar,
-    activity: "Created Project",
-    status: "Failed",
-    statusColor: "Red",
-    date: "2025-11-11 05:45 PM",
-  },
-  {
-    id: 12,
-    name: "Leila Jamil",
-    email: "leilajamil12@example.com",
-    avatar: girlAvatar,
-    activity: "Invited User",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-11 03:20 PM",
-  },
-  {
-    id: 13,
-    name: "Ibrahim Mansour",
-    email: "ibrahimmansour13@example.com",
-    avatar: manAvatar,
-    activity: "Exported Data",
-    status: "In Progress",
-    statusColor: "Purple",
-    date: "2025-11-10 02:00 PM",
-  },
-  {
-    id: 14,
-    name: "Mariam Nassar",
-    email: "mariamnassar14@example.com",
-    avatar: girlAvatar,
-    activity: "Updated Photo",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-11-10 11:15 AM",
-  },
-  {
-    id: 15,
-    name: "Khalid Rashid",
-    email: "khalidri15@example.com",
-    avatar: boyAvatar,
-    activity: "Logged In",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-09 10:45 AM",
-  },
-  {
-    id: 16,
-    name: "Hana Saad",
-    email: "hanasaad16@example.com",
-    avatar: girlAvatar,
-    activity: "Updated Profile",
-    status: "Pending",
-    statusColor: "Yellow",
-    date: "2025-11-09 08:30 AM",
-  },
-  {
-    id: 17,
-    name: "Jamal Saleh",
-    email: "jamalsaleh17@example.com",
-    avatar: manAvatar,
-    activity: "Password Reset",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-11-08 04:15 PM",
-  },
-  {
-    id: 18,
-    name: "Dina Salam",
-    email: "dinasalam18@example.com",
-    avatar: girlAvatar,
-    activity: "Downloaded Report",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-08 02:50 PM",
-  },
-  {
-    id: 19,
-    name: "Samir Samad",
-    email: "samirsamad19@example.com",
-    avatar: boyAvatar,
-    activity: "Uploaded Document",
-    status: "Failed",
-    statusColor: "Red",
-    date: "2025-11-07 01:00 PM",
-  },
-  {
-    id: 20,
-    name: "Reem Sami",
-    email: "reemsami20@example.com",
-    avatar: girlAvatar,
-    activity: "Changed Settings",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-07 10:30 AM",
-  },
-  {
-    id: 21,
-    name: "Tariq Samir",
-    email: "tariqsamir21@example.com",
-    avatar: boyAvatar,
-    activity: "Shared File",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-11-06 09:45 AM",
-  },
-  {
-    id: 22,
-    name: "Yasmin Tamer",
-    email: "yasmintamer22@example.com",
-    avatar: girlAvatar,
-    activity: "Deleted Account",
-    status: "In Progress",
-    statusColor: "Purple",
-    date: "2025-11-06 03:20 PM",
-  },
-  {
-    id: 23,
-    name: "Adel Tariq",
-    email: "adeltariq23@example.com",
-    avatar: manAvatar,
-    activity: "Verified Email",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-05 11:00 AM",
-  },
-  {
-    id: 24,
-    name: "Zainab Yasir",
-    email: "zainabyasir24@example.com",
-    avatar: girlAvatar,
-    activity: "Updated Billing",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-11-05 08:15 AM",
-  },
-  {
-    id: 25,
-    name: "Bilal Youssef",
-    email: "bialyoussef25@example.com",
-    avatar: boyAvatar,
-    activity: "Created Project",
-    status: "Pending",
-    statusColor: "Yellow",
-    date: "2025-11-04 05:30 PM",
-  },
-  {
-    id: 26,
-    name: "Salma Zahra",
-    email: "salmazahra26@example.com",
-    avatar: girlAvatar,
-    activity: "Invited User",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-04 02:45 PM",
-  },
-  {
-    id: 27,
-    name: "Rashid Zaki",
-    email: "rashidzaki27@example.com",
-    avatar: manAvatar,
-    activity: "Exported Data",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-11-03 01:30 PM",
-  },
-  {
-    id: 28,
-    name: "Amira Zayed",
-    email: "amirazayed28@example.com",
-    avatar: girlAvatar,
-    activity: "Updated Photo",
-    status: "Failed",
-    statusColor: "Red",
-    date: "2025-11-03 10:00 AM",
-  },
-  {
-    id: 29,
-    name: "Youssef Zein",
-    email: "youssefzein29@example.com",
-    avatar: boyAvatar,
-    activity: "Logged In",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-02 09:20 AM",
-  },
-  {
-    id: 30,
-    name: "Nadia Ziad",
-    email: "nadiaziad30@example.com",
-    avatar: girlAvatar,
-    activity: "Updated Profile",
-    status: "In Progress",
-    statusColor: "Purple",
-    date: "2025-11-02 07:45 AM",
-  },
-  {
-    id: 31,
-    name: "Faisal Nasser",
-    email: "faisalnasser31@example.com",
-    avatar: boyAvatar,
-    activity: "Password Reset",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-11-01 04:00 PM",
-  },
-  {
-    id: 32,
-    name: "Huda Nabil",
-    email: "hudanabil32@example.com",
-    avatar: girlAvatar,
-    activity: "Downloaded Report",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-11-01 02:30 PM",
-  },
-  {
-    id: 33,
-    name: "Emad Nawaf",
-    email: "emadnawaf33@example.com",
-    avatar: manAvatar,
-    activity: "Uploaded Document",
-    status: "Pending",
-    statusColor: "Yellow",
-    date: "2025-10-31 01:15 PM",
-  },
-  {
-    id: 34,
-    name: "Iman Nizar",
-    email: "imamnizar34@example.com",
-    avatar: girlAvatar,
-    activity: "Changed Settings",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-10-31 10:45 AM",
-  },
-  {
-    id: 35,
-    name: "Hazem Osama",
-    email: "hazemsama35@example.com",
-    avatar: boyAvatar,
-    activity: "Shared File",
-    status: "Failed",
-    statusColor: "Red",
-    date: "2025-10-30 09:30 AM",
-  },
-  {
-    id: 36,
-    name: "Lily Owais",
-    email: "lilyowais36@example.com",
-    avatar: girlAvatar,
-    activity: "Deleted Account",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-10-30 08:00 AM",
-  },
-  {
-    id: 37,
-    name: "Nadir Qadir",
-    email: "nadirqadir37@example.com",
-    avatar: manAvatar,
-    activity: "Verified Email",
-    status: "In Progress",
-    statusColor: "Purple",
-    date: "2025-10-29 03:50 PM",
-  },
-  {
-    id: 38,
-    name: "Maya Qasim",
-    email: "mayaqasim38@example.com",
-    avatar: girlAvatar,
-    activity: "Updated Billing",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-10-29 02:20 PM",
-  },
-  {
-    id: 39,
-    name: "Rafiq Radi",
-    email: "rafiqradi39@example.com",
-    avatar: boyAvatar,
-    activity: "Created Project",
-    status: "Successful",
-    statusColor: "Green",
-    date: "2025-10-28 11:30 AM",
-  },
-  {
-    id: 40,
-    name: "Sophia Rahim",
-    email: "sophirahim40@example.com",
-    avatar: girlAvatar,
-    activity: "Invited User",
-    status: "Completed",
-    statusColor: "Blue",
-    date: "2025-10-28 09:15 AM",
+    activities: [
+      {
+        activity: "Invited User",
+        status: "Completed",
+        statusColor: "Blue",
+        date: "2025-10-28 09:15 AM",
+      },
+    ],
   },
 ];
 

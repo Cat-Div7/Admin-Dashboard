@@ -92,6 +92,12 @@ export const paginationIcons = {
   rightSingle: faAngleRight,
 };
 
+export const toolsIcons = {
+  search: faSearch,
+  filter: faSliders,
+  arrowDown: faAngleDown,
+};
+
 export {
   faArrowUp,
   faFacebookF,

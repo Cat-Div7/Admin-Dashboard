@@ -1,0 +1,186 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.searchWrapper {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: var(--main-trans);
+}
+
+.iconLeft {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.input {
+  flex: 1;
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 3rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--card-bg);
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  transition: var(--main-trans);
+}
+
+.input::placeholder {
+  color: var(--text-secondary);
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.buttonsWrapper {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .buttonsWrapper {
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .buttonsWrapper {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 3rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  min-width: 0;
+  background-color: var(--card-bg);
+  color: var(--text-secondary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: var(--main-trans);
+  border: 1px solid var(--border-color);
+  position: relative;
+}
+
+.button.active,
+.button:hover {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.buttonIcon {
+  font-size: 1.25rem;
+}
+
+.buttonArrow {
+  font-size: 1.25rem;
+}
+
+.buttonText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Container common for both modals */
+.modal {
+  position: absolute;
+  top: 110%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  z-index: 1000;
+  min-width: 180px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* List inside modal */
+.modal ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* List items */
+.modal li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.15s ease;
+}
+
+/* Hover effect */
+.modal li:hover {
+  background-color: #f3f4f6;
+}
+
+/* Dark mode support */
+[theme-mode="dark"] .inputContainer {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+[theme-mode="dark"] .button {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+[theme-mode="dark"] .modal {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+[theme-mode="dark"] .modal li:hover {
+  background-color: #374151;
+}

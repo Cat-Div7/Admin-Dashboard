@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { Sidebar, Button, Navbar } from "@components";
 import { Outlet } from "react-router-dom";
-import { CollapseContextProvider, ThemeContextProvider } from "@context";
+import {
+  CollapseContextProvider,
+  ThemeContextProvider,
+  UsersContextProvider,
+} from "@context";
 import styles from "@styles/MainLayout.module.css";
 import { sidebarIcons } from "@utils";
 import { FontIcon } from "@components";
@@ -53,9 +57,11 @@ function MainLayout() {
         {/* Main COntent */}
         <div className={styles.contentContainer}>
           <Navbar />
-          <main className={styles.mainContent}>
-            <Outlet />
-          </main>
+          <UsersContextProvider>
+            <main className={styles.mainContent}>
+              <Outlet />
+            </main>
+          </UsersContextProvider>
         </div>
       </div>
     </ThemeContextProvider>

@@ -9,5 +9,7 @@ export * from "./layout/Navbar";
 export * from "./ui/NotificationModal";
 export * from "./ui/AvatarModal";
 export * from "./layout/UsersTable";
+export * from "./layout/UsersTools";
 export * from "./ui/Pagination";
-export * from './Loader'
+export * from "./Loader";
+export * from "./ui/ActionsModal";

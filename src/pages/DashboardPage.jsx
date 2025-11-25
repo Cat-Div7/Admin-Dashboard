@@ -28,7 +28,7 @@ function DashboardPage() {
         {/* Date Range Selector */}
         <div className={styles.header}>
           <div>
-            <h1 className={styles.title}>Welcome back, {user.firstName}!</h1>
+            <h1>Welcome back, {user.firstName}!</h1>
             <p style={{ color: "var(--text-secondary)" }}>
               Home /
               <span style={{ color: "var(--text-primary)" }}> Dashboard</span>
