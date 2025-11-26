@@ -1,7 +1,12 @@
 import styles from "@styles/BlogPost.module.css";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function BlogPost({ post }) {
+  const { id } = useParams();
+  console.log(id);
+
+
   return (
     <article className={styles.blogCard}>
       <div

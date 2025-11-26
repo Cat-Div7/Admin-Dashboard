@@ -13,6 +13,9 @@ export const REGISTER_PATH = "/register";
 export const LOGIN_PATH = "/login";
 export const HOME_PATH = "/home";
 
+// Blogs URL
+export const BLOGS_API_URL = "https://dummyjson.com/posts/";
+
 // Landing Sections
 // Features Data Factory
 export const getFeatureData = async () => {

@@ -4,3 +4,4 @@ export * from "./useClickOutside";
 export * from "./useLogout";
 export * from "./useUser";
 export * from "./useAccentColor";
+export * from "./useFetch";
