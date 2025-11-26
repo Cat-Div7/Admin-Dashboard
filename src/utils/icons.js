@@ -23,6 +23,9 @@ import {
   faAngleLeft,
   faAngleDoubleRight,
   faAngleDown,
+  faTriangleExclamation,
+  faMapPin,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
@@ -96,6 +99,13 @@ export const toolsIcons = {
   search: faSearch,
   filter: faSliders,
   arrowDown: faAngleDown,
+};
+
+export const userDetailsIcons = {
+  warning: faTriangleExclamation,
+  lock: faLock,
+  pin: faMapPin,
+  plus: faPlus,
 };
 
 export {

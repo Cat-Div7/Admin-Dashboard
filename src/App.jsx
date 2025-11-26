@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { PublicRoute, ProtectedRoute, ValidateRoute } from "@utils";
 import {
+  ErrorPage,
   LandingPage,
   LoginPage,
   RegisterPage,
@@ -8,6 +9,7 @@ import {
   AnalyticsPage,
   ProfilePage,
   UsersPage,
+  UserDetailsPage,
   BlogsPage,
 } from "@pages";
 import { MainLayout } from "@layouts";
@@ -16,6 +18,7 @@ const router = createBrowserRouter([
   // Public Routes (No login required)
   {
     element: <PublicRoute />,
+    errorElement: <ErrorPage />,
     children: [
       { path: "", element: <LandingPage /> },
       { path: "login", element: <LoginPage /> },
@@ -26,6 +29,7 @@ const router = createBrowserRouter([
   // Protected Routes (Login Required)
   {
     element: <ProtectedRoute />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "home",
@@ -57,7 +61,7 @@ const router = createBrowserRouter([
                 path: ":id",
                 element: <ValidateRoute />,
                 handle: ({ params }) => `Profile #${params.id}`,
-                children: [{ index: true, element: <div>User Detail</div> }],
+                children: [{ index: true, element: <UserDetailsPage /> }],
               },
             ],
           },

@@ -7,3 +7,5 @@ export * from "./blog/BlogsPage";
 export * from "./blog/BlogPost";
 export * from "./ProfilePage";
 export * from "./UsersPage";
+export * from "./UserDetailsPage";
+export * from './ErrorPage'
