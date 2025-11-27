@@ -12,6 +12,7 @@ import {
   UserDetailsPage,
   BlogsPage,
   BlogDetails,
+  SettingsPage,
 } from "@pages";
 import { MainLayout } from "@layouts";
 
@@ -82,7 +83,7 @@ const router = createBrowserRouter([
           },
           {
             path: "settings",
-            element: <div>Settings Page</div>,
+            element: <SettingsPage />,
             handle: { breadcrumb: "Settings" },
           },
         ],

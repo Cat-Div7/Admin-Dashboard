@@ -10,3 +10,4 @@ export * from "./ProfilePage";
 export * from "./UsersPage";
 export * from "./UserDetailsPage";
 export * from "./ErrorPage";
+export * from "./SettingsPage";
