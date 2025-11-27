@@ -108,6 +108,10 @@ export const userDetailsIcons = {
   plus: faPlus,
 };
 
+export const blogDetailsIcons = {
+  warning: faTriangleExclamation,
+};
+
 export {
   faArrowUp,
   faFacebookF,

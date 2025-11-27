@@ -5,7 +5,8 @@ export * from "./DashboardPage";
 export * from "./AnalyticsPage.jsx";
 export * from "./blog/BlogsPage";
 export * from "./blog/BlogPost";
+export * from "./blog/BlogDetails";
 export * from "./ProfilePage";
 export * from "./UsersPage";
 export * from "./UserDetailsPage";
-export * from './ErrorPage'
+export * from "./ErrorPage";

@@ -11,6 +11,7 @@ import {
   UsersPage,
   UserDetailsPage,
   BlogsPage,
+  BlogDetails,
 } from "@pages";
 import { MainLayout } from "@layouts";
 
@@ -75,7 +76,7 @@ const router = createBrowserRouter([
                 path: ":id",
                 element: <ValidateRoute />,
                 handle: ({ params }) => `Profile #${params.id}`,
-                children: [{ index: true, element: <div>Blog Details</div> }],
+                children: [{ index: true, element: <BlogDetails /> }],
               },
             ],
           },
