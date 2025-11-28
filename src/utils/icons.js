@@ -26,6 +26,7 @@ import {
   faTriangleExclamation,
   faMapPin,
   faPlus,
+  faHeadphones,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
@@ -111,6 +112,11 @@ export const userDetailsIcons = {
 export const blogDetailsIcons = {
   warning: faTriangleExclamation,
 };
+
+export const settingIcons = {
+  analytics: faChartBar,
+  headphone: faHeadphones
+}
 
 export {
   faArrowUp,

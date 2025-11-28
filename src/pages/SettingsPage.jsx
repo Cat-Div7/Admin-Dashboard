@@ -3,7 +3,8 @@ import { toast } from "sonner";
 import styles from "@styles/Settings.module.css";
 import { useUser } from "@hooks";
 import { STORAGE_KEY_ACCOUNTS } from "@constants";
-import { hashPassword } from "@utils";
+import { hashPassword, settingIcons } from "@utils";
+import { FontIcon } from "@components";
 
 function SettingsPage() {
   const { user, refreshUser } = useUser();
@@ -341,7 +342,9 @@ function SettingsPage() {
             <div className={styles.integrationsList}>
               <div className={styles.integrationItem}>
                 <div className={styles.integrationLeft}>
-                  <div className={styles.integrationIcon}>📊</div>
+                  <div className={styles.integrationIcon}>
+                    <FontIcon icon={settingIcons.analytics} />
+                  </div>
                   <div>
                     <p className={styles.integrationTitle}>Product Analytics</p>
                     <p className={styles.integrationDesc}>
@@ -366,7 +369,9 @@ function SettingsPage() {
 
               <div className={styles.integrationItem}>
                 <div className={styles.integrationLeft}>
-                  <div className={styles.integrationIcon}>🎧</div>
+                  <div className={styles.integrationIcon}>
+                    <FontIcon icon={settingIcons.headphone} />
+                  </div>
                   <div>
                     <p className={styles.integrationTitle}>Customer Support</p>
                     <p className={styles.integrationDesc}>
