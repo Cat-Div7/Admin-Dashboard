@@ -40,7 +40,7 @@ function BlogDetails() {
     ...p,
     thumbnail: `https://picsum.photos/seed/post-${p.id}/500/300`,
   }));
-  const article = posts.find((p) => p.id.toString() === id);
+  const article = posts?.find((p) => p.id.toString() === id);
 
   if (!article) {
     return (

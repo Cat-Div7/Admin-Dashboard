@@ -19,7 +19,7 @@ function BlogsPage() {
   // Pagination Logic
   const rowsPerPage = 6;
   const start = (currentPage - 1) * rowsPerPage;
-  const paginatedPosts = posts.slice(start, start + rowsPerPage);
+  const paginatedPosts = posts?.slice(start, start + rowsPerPage);
 
   return (
     <div className={styles.container}>
@@ -31,7 +31,7 @@ function BlogsPage() {
       </div>
 
       <div className={styles.grid}>
-        {paginatedPosts.map((article) => (
+        {paginatedPosts?.map((article) => (
           <Link key={article.id} to={`${article.id}`} className={styles.card}>
             <div
               className={styles.image}
@@ -67,15 +67,15 @@ function BlogsPage() {
           </button>
 
           <span className={styles.pageInfo}>
-            Page {currentPage} of {Math.ceil(posts.length / rowsPerPage)}
+            Page {currentPage} of {Math.ceil(posts?.length / rowsPerPage)}
           </span>
 
           <button
             className={styles.pageBtn}
-            disabled={currentPage === Math.ceil(posts.length / rowsPerPage)}
+            disabled={currentPage === Math.ceil(posts?.length / rowsPerPage)}
             onClick={() =>
               setCurrentPage((p) =>
-                Math.min(Math.ceil(posts.length / rowsPerPage), p + 1)
+                Math.min(Math.ceil(posts?.length / rowsPerPage), p + 1)
               )
             }
           >
